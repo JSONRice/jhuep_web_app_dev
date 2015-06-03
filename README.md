@@ -33,7 +33,7 @@ git merge hotfix
 ```
 
 ### Maven and Tomcat:
-** Redeploying updated WAR (localhost) **
+**Redeploying updated WAR (localhost)**
 ```
 mvn clean install
 rm -r /usr/local/tomcat/webapps/jhuep_web_app_dev*
