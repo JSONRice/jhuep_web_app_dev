@@ -4,6 +4,7 @@ CS.605.782 Team D Git Repository
 Team Members
 --------------------
 * **Jason Rice** is a software engineer who programs primarily in Java, but has experience in Perl, C++, Python, Ruby, HTML/CSS, and JavaScript. He frequently uses Eclipse, Netbeans, Maven, REST, Spring, Grails, SVN, and Git in his development. He also really enjoys the world of Unix and Linux and his heros include Richard Stallman, Linus Torvalds, and Larry Wall.
+* **Matthew Pavan** is a software developer with end to end skills including web development, cloud hosting, and ETL solutions. Matthew is a hard working problem solver who will ensure your development needs are met.
 
 ### Github commands:
 Command      | Description
