@@ -1,0 +1,152 @@
+/*
+   Homework Default Style Sheet
+   
+   Description: Labels and other elements are stacked with float to the left and aligned left.
+   Everything should align in an equal fashion to the left side. This allows elements to be 'stacked'
+   on top of each other.
+
+   Filename:         hw.css
+*/
+
+
+ul {
+   list-style-type: none;
+}
+
+label {
+   float: left;
+   width: 8em;
+}
+
+input {
+   width: 15em;
+   margin-left: 1em;
+   margin-bottom: .5em;
+}
+
+hr {
+   color: blue;
+   width: 100%;
+}
+
+textarea {
+   height: 5em;
+   width: 25em;
+   font-family: Arial, Helvetica, sans-serif; 
+}
+
+/**
+ Extra spacing for the field set elements.
+**/
+#cconfig label,input {
+	width: 12em;	
+}
+
+#cconfig select {
+	margin: 0 10px 10px 0;	
+	width: 100%;
+	height: 100%;
+}
+
+#select_instructions {
+	font-weight: bold;
+	font-size: 12px;
+}
+
+/**
+ Make sure that the additional options disregards floats so that it appears at the bottom.
+**/
+#additionaloptions {
+	clear:both;
+}
+
+#additionaloptions input {
+    position:relative;
+    float:left;
+}
+
+/**
+ Forces the footer to anchor onto the bottom of the page.
+**/
+#footer {
+    font-size: 12px;
+    height: 50px;
+    width: 100%;
+    color: skyblue;
+    font-weight: bold;
+}
+
+ul {
+    margin: 0 10px 10px 0;
+    padding: 1px;
+}
+
+/* Decrease spacing for the radio buttons and checkboxes with the field sets. */
+input[type="radio"], input[type="checkbox"] {
+    width: 1em;
+}
+
+.grid table {
+    width: 100%;
+}
+
+.grid tr {
+    width: 100%;
+}
+
+.grid th {
+    font-weight: bold;
+    width: 100%;
+}
+
+.grid td {
+    width: 100%;
+    padding: 3px;
+    padding-left: 7px;
+}
+
+
+/* Use to border style any table cells */
+.grid-border {
+    box-shadow: 0 0 0 1pt black;
+}
+
+.empty-row {
+    height: 20px !important;
+    background-color: #FFFFFF;
+}
+
+.cost { 
+    text-align: right;
+}
+
+.cost:before {
+    content: "$"
+}
+
+.accomodation:before {
+    content: "* "
+}
+
+.total-cost {
+    font-weight: bold;
+}
+
+.email {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: Times New Roman;
+}
+
+.index-modal {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    filter:alpha(opacity=60);
+    opacity:0.6;
+    -moz-opacity:0.6;
+    z-index:100;
+    text-align:center;
+    vertical-align:middle;   
+}

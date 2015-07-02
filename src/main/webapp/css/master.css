@@ -1,0 +1,21 @@
+/* 
+    Description: Master CSS file for adding global style properties.
+    Created on : Jul 1, 2015, 7:28:13 PM
+    Author     : jsnrice
+*/
+
+
+* {
+   background-image: url("../images/stars1.jpg");
+   background-color: black;
+   color: #ffffff;
+   font-family:"Courier,New Courier,Times New Roman";
+}
+
+h1, h2, h3 {
+   text-align: center;
+}
+
+table {
+   color: #000000;
+}
