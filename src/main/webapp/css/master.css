@@ -1,21 +1,119 @@
 /* 
-    Description: Master CSS file for adding global style properties.
+    Description: Master CSS file for adding style properties throughout UI.
     Created on : Jul 1, 2015, 7:28:13 PM
     Author     : jsnrice
 */
 
+/*** GLOBAL DEFAULTS ***/
 
-* {
-   background-image: url("../images/stars1.jpg");
-   background-color: black;
-   color: #ffffff;
-   font-family:"Courier,New Courier,Times New Roman";
+body {
+    background-image: url("../images/stars3.jpg");
+    background-color: black;
+    color: #FFFFFF;
+    font-family:"Times New Roman";
+}
+
+/** Alignments: **/
+.main-title, table, marquee {
+    padding-left: 120px;
+}
+
+.main-title {
+    float:left;    
+    letter-spacing: 5px;
+    font-size: 50pt;
+    padding-left: 235px;
+}
+
+.content {
+    margin-left: 420px;    
+    padding-top: 210px;
+    opacity: 50% !important;
+    padding-left: 0px !important;
+}
+
+.content .text {
+    position: absolute;
+    font-family: sans-serif;
+    // background-color: rgba(0,0,0,0.8);
+    padding: 10px;
+    // Overflow scroll bar in case we need it:
+    /*
+    height: 30pc; 
+    overflow-y: scroll;
+    */
 }
 
 h1, h2, h3 {
-   text-align: center;
+    text-decoration: none;
+    font-weight: lighter;
+    text-align: center;
 }
 
-table {
-   color: #000000;
+/*** NAVIGATION MENU BAR ****/
+
+.navbar {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-align: center;    
+}
+
+.navbar li {
+    float: left;
+    width: 250px;
+    display: inline;    
+    border: 2px solid #FFFFFF;
+    border-radius: 1px;    
+    letter-spacing: 5px;
+}
+
+/** 
+ * Optional style where the border is just a divider. Nothing more. 
+
+.navbar li+li { 
+    border-left: 2px solid #FFF 
+}
+*/
+
+.navbar li a {
+    display: inline-block;
+    background: #333;
+    color: #FFF;
+    display: block;
+    padding: 7px 8px;
+    text-decoration: none;
+    border-top: 1px solid #069;
+}
+
+.navbar li a:hover {
+    background-color: #069;
+}
+
+/*=== submenu ===*/
+
+.navbar ul {
+    display: none;
+    position: absolute;
+    margin-left: 0px;
+    list-style: none;
+    padding: 0px;
+}
+
+.navbar ul li {
+    width: 160px;
+    float: left;
+}
+
+.navbar ul a {
+    display: block;
+    height: 15px;
+    padding: 7px 8px;
+    color: #FFF;
+    text-decoration: none;
+    border-bottom: 1px solid #222;
+}
+
+.navbar ul li a:hover {
+    color: #069;
 }
