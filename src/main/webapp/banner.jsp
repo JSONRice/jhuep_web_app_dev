@@ -8,6 +8,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
    
 <div id="heading">
-    <img src="images/newhorizons.png" style="float:left" alt="JHU Logo" />
     <jsp:include page="navbar.jsp"/>
+    <img src="images/newhorizons.png" style="float:left;" alt="JHU Logo" />    
 </div>

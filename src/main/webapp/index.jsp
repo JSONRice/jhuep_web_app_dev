@@ -18,7 +18,7 @@
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
-        <h1 class="main-title">NEWHORIZONS Mission</h1>    
+        <h1 class="main-title centered">NEWHORIZONS Mission</h1>    
         <div id="pageContent" class="content">
             <pre class="text">
 New Horizons is a NASA space probe launched to study the dwarf planet Pluto, its moons and one or 
@@ -48,7 +48,7 @@ in the first flyby of the dwarf planet on July 14, 2015.
         <div id="twitter-feed" class="twitter-feed">
             <a class="twitter-timeline"  
                width="270"
-               height="600"
+               height="400"
                href="https://twitter.com/hashtag/newhorizons" 
                data-widget-id="617072424996216833">Top #newhorizons Tweets</a>
         </div>

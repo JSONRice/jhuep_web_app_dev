@@ -1,0 +1,42 @@
+/* 
+    Created on : Jul 5, 2015, 11:07:34 PM
+    Description: Styling for tabs. See tabs.js This is applied directly within data_feeds.jsp
+    Author     : jsnrice
+*/
+
+.tabs-container {
+    display: table;   /* Allow the centering to work */
+    margin: 0 auto;
+    float: left;
+    margin-left: 420px;
+    width: 800px;
+}
+ul.tabs{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+ul.tabs li{
+    background: gray;
+    border-radius: 1px;
+    color: black;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+ul.tabs li.current{
+    background: #EDEDED;
+    color: black;
+}
+
+.tab-content{
+    display: none;
+    background: #EDEDED;
+    color: black;
+    padding: 15px;
+}
+
+.tab-content.current{
+    display: inherit;
+}
