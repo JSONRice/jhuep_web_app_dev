@@ -21,30 +21,50 @@
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
-        <h1 class="main-title">NEWHORIZONS Data Feeds</h1>            
-        <h1 class="title">Select a Data Feed Tab</h1>           
-        <div class="tabs-container">
-            <ul class="tabs">
-                <li class="tab-link current" data-tab="tab-1">Mission Metrics</li>
-                <li class="tab-link" data-tab="tab-2">Trajectory</li>
-                <li class="tab-link" data-tab="tab-3">LORRI Uploads</li>
-            </ul>
-            <div id="tab-1" class="tab-content current">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </div>
-            <div id="tab-2" class="tab-content">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
-            <div id="tab-3" class="tab-content">
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.                
-            </div>
-        </div><!-- container -->
+        <table>
+            <tr>
+                <td>
+                    <h1 class="main-title">Data Feeds</h1>
+                </td>
+            </tr>                
+            <tr>                
+                <td>            
+                    <h1 class="title">Select a Data Feed Tab</h1>
+                </td>
+            </tr>                
+            <tr>                
+                <td>            
+                    <div class="tabs-container">
+                        <ul class="tabs">
+                            <li class="tab-link current" data-tab="tab-1">Trajectory</li>                            
+                            <li class="tab-link" data-tab="tab-2">Mission Metrics</li>
+                            <li class="tab-link" data-tab="tab-3">LORRI Uploads</li>
+                        </ul>
+                        <div id="tab-1" class="tab-content current">
+                            <!-- TODO: develop a Java controller or service to get the most up to date picture and place it in here: -->
+                            <!-- The picture should come from this site: http://pluto.jhuapl.edu/whereisnh/PlutoFlyby/ -->
+                            <img class="trajectory_img" src="http://pluto.jhuapl.edu/whereisnh/PlutoFlyby/nhpf20150701_0144.svg" alt="NEWHORIZONS fly-by of Pluto"/>
+                        </div>                        
+                        <div id="tab-2" class="tab-content">
+                            <!-- TODO: develop a Java controller or service to get the most up to date picture and place it in here: -->
+                            <!-- The picture should come from this site: http://pluto.jhuapl.edu/soc/Pluto-Encounter/data/pluto/ -->                            
+                            <pre><b>The latest LORRI (Long Range Reconnaissance Imager) images from NEWHORIZONS:</b></pre>
+                            <br/>
+                            <img class="lorri_img" src="http://pluto.jhuapl.edu/soc/Pluto-Encounter/data/pluto/level2/lor/jpeg/029820/lor_0298204679_0x630_sci_1.jpg" alt="Latest LORRI upload"/>
+                        </div>
+                        <div id="tab-3" class="tab-content">
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.                
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>        
     </body>
 </html>
 

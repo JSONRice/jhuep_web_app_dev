@@ -28,6 +28,11 @@ body::after {
     z-index: -1;     
 }
 
+/* By default display all table elements vertically: */
+table {
+    display:block;
+}
+
 /** Alignments: **/
 .main-title, title, table, marquee {
     padding-left: 120px;
@@ -137,4 +142,12 @@ h1 {
 
 .navbar ul li a:hover {
     color: #069;
+}
+
+.trajectory_img, .lorri_img {
+    height: 500px;
+}
+
+.lorri_img {
+    width: 100%;
 }

@@ -8,7 +8,7 @@
     display: table;   /* Allow the centering to work */
     margin: 0 auto;
     float: left;
-    margin-left: 420px;
+    padding-left: 235px;
     width: 800px;
 }
 ul.tabs{

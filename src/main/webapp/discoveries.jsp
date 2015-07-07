@@ -18,7 +18,7 @@
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
-        <h1 class="main-title">NEWHORIZONS Discoveries</h1>            
+        <h1 class="main-title">Discoveries</h1>            
         <div id="pageContent" class="content">
             <pre class="text">Coming Soon!</pre>
         </div>
