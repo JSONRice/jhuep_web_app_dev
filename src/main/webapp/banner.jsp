@@ -6,8 +6,12 @@
     Author      : jsnrice
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!-- favicon of NEWHORIZONS: -->
 <link href="images/newhorizons.png" rel="shortcut icon" />   
+<script src="js/newhorizons/ui/twitter.js" type="text/javascript"></script>
+
 <div id="heading">
+    <img src="images/newhorizons.png" style="position: absolute;" alt="JHU Logo" />
+    <jsp:include page="twitter_feed.jsp"/>    
     <jsp:include page="navbar.jsp"/>
-    <img src="images/newhorizons.png" style="float:left;" alt="JHU Logo" />    
 </div>

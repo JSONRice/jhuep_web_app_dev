@@ -5,17 +5,16 @@
 */
 
 .tabs-container {
-    display: table;   /* Allow the centering to work */
     margin: 0 auto;
     float: left;
-    padding-left: 245px;
-    width: 800px;
 }
+
 ul.tabs{
     margin: 0px;
     padding: 0px;
     list-style: none;
 }
+
 ul.tabs li{
     background: gray;
     border-radius: 1px;
