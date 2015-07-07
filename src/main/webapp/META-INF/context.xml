@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/jhuep_web_app_dev"/>
+<Context antiJARLocking="true" path="/jhuep_web_app_dev">
+    <Resource name="jdbc/testDB" auth="Container" type="javax.sql.DataSource"
+            driverClassName="org.apache.derby.jdbc.ClientDriver"
+            url="jdbc:derby://localhost:1527/derby/NewHorizons;create=true"/>
+</Context>
