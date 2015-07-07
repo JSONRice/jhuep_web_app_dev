@@ -149,5 +149,11 @@ h1 {
 }
 
 .lorri_img {
-    width: 100%;
+    width: 550px !important;
+    height: 400px !important
+}
+
+.time {
+    font-weight: bold !important;
+    font-family: Verdana !important;
 }

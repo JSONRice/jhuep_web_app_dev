@@ -6,7 +6,7 @@
     Author      : jsnrice
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-   
+<link href="images/newhorizons.png" rel="shortcut icon" />   
 <div id="heading">
     <jsp:include page="navbar.jsp"/>
     <img src="images/newhorizons.png" style="float:left;" alt="JHU Logo" />    
