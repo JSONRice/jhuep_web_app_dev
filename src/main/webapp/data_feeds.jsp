@@ -37,8 +37,8 @@
                     <div class="tabs-container">
                         <ul class="tabs">
                             <li class="tab-link current" data-tab="tab-1">Trajectory</li>                            
-                            <li class="tab-link" data-tab="tab-2">Mission Metrics</li>
-                            <li class="tab-link" data-tab="tab-3">LORRI Uploads</li>
+                            <li class="tab-link" data-tab="tab-2">LORRI Uploads</li>
+                            <li class="tab-link" data-tab="tab-3">Mission Metrics</li>
                         </ul>
                         <div id="tab-1" class="tab-content current">
                             <!-- TODO: develop a Java controller or service to get the most up to date picture and place it in here: -->
