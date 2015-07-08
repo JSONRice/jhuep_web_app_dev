@@ -1,6 +1,6 @@
 /* 
     Created on : Jul 5, 2015, 11:07:34 PM
-    Description: Tabs jQuery functions. See tabs.css This is applied directly within data_feeds.jsp
+    Description: Tabs jQuery functions for CSS.
     Author     : jsnrice
 */
 

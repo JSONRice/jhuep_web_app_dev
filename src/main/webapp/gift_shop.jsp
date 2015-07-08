@@ -17,9 +17,17 @@
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
+        <table>
+            <tr>
+                <td>
         <h1 class="main-title">Gift Shop</h1>            
-        <div id="pageContent" class="content">
-            <pre class="text">Coming Soon!</pre>
-        </div>
+                </td>
+            </tr>                
+            <tr>                
+                <td>            
+                    <h1 class="title">Coming Soon!</h1>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>

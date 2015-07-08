@@ -16,10 +16,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
     </head>
     <body>
-        <jsp:include page="banner.jsp"/>
-        <h1 class="main-title centered">NEWHORIZONS Mission</h1>    
-        <div id="pageContent" class="content">
-            <pre class="text">
+        <jsp:include page="banner.jsp"/>        
+        <table>
+            <tr>
+                <td>
+                    <h1 class="main-title">NEWHORIZONS Mission</h1>    
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <pre class="text"><span style="font-weight: bold;">Wikipedia entry:</span>
+
 New Horizons is a NASA space probe launched to study the dwarf planet Pluto, its moons and one or 
 two other Kuiper belt objects, depending on which are in position to be explored. The intention is 
 not to orbit these objects but to observe them as the probe flies by.
@@ -42,15 +49,10 @@ instrument check-out began.
 
 On January 15, 2015, the New Horizons spacecraft began its approach phase to Pluto, which will result 
 in the first flyby of the dwarf planet on July 14, 2015.                
-            </pre>
-        </div>
-        <div id="twitter-feed" class="twitter-feed">
-            <a class="twitter-timeline"  
-               width="270"
-               height="400"
-               href="https://twitter.com/hashtag/newhorizons" 
-               data-widget-id="617072424996216833">Top #newhorizons Tweets</a>
-        </div>
+                    </pre>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>
 

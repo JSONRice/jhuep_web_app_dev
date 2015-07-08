@@ -26,7 +26,6 @@
             <tr>
                 <td>
                     <h1 class="main-title">Data Feeds</h1>
-
                 </td>
             </tr>                
             <tr>                
@@ -45,7 +44,7 @@
                         <div id="tab-1" class="tab-content current">
                             <!-- TODO: develop a Java controller or service to get the most up to date picture and place it in here: -->
                             <!-- The picture should come from this site: http://pluto.jhuapl.edu/whereisnh/PlutoFlyby/ -->
-                            <img class="trajectory_img" src="http://pluto.jhuapl.edu/whereisnh/PlutoFlyby/nhpf20150701_0144.svg" alt="NEWHORIZONS fly-by of Pluto"/>
+                            <img class="data_feed_img trajectory_img" src="http://pluto.jhuapl.edu/whereisnh/PlutoFlyby/nhpf20150701_0144.svg" alt="NEWHORIZONS fly-by of Pluto"/>
                         </div>                        
                         <div id="tab-2" class="tab-content">
                             <!-- TODO: develop a Java controller or service to get the most up to date picture and place it in here: -->
@@ -68,17 +67,15 @@
                                 Image Name:	lor_0298272204_0x630_sci_3
                             </div>
                             <br/>
-                            <img class="lorri_img" src="http://pluto.jhuapl.edu/soc/Pluto-Encounter/data/pluto/level2/lor/jpeg/029820/lor_0298204679_0x630_sci_1.jpg" alt="Latest LORRI upload"/>
+                            <img class="lorri_img data_feed_img" src="http://pluto.jhuapl.edu/soc/Pluto-Encounter/data/pluto/level2/lor/jpeg/029820/lor_0298204679_0x630_sci_1.jpg" alt="Latest LORRI upload"/>
                         </div>
                         <div id="tab-3" class="tab-content">
-                            <fieldset>
-                                <legend>NEWHORIZONS Mission Metrics:</legend>
+                                <pre>NEWHORIZONS Mission Metrics:</pre>
                                 <pre><span>Time Until Destination Arrival:</span><br/><br/><div id="clock" class="time"></div></pre>
-                                                <hr/>
-                                                <pre><span>Expected Time of Arrival (ETA):</span><br/><br/><div id="eta" class="time">Tue, 14 Jul 2015 11:49:57 UTC</div></pre>
-                                <hr/>
-                                <pre><span>Set Coordinates:</span><br/><br/><img src="images/missiontrajectorypath.jpg"/></pre>
-                            </fieldset>
+                                <pre><span>Expected Time of Arrival (ETA):</span><br/><br/><div id="eta" class="time">Tue, 14 Jul 2015 11:49:57 UTC</div></pre>
+                                <pre><span>Set Coordinates:</span></pre>
+                                <br/><br/>
+                                <img class="mission_metrics_img data_feed_img" src="images/missiontrajectorypath.jpg"/>
                         </div>
                     </div>
                 </td>
