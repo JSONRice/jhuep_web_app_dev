@@ -5,8 +5,8 @@
 --%>
 <div id="twitter-feed" class="twitter-feed" style="margin: 10px;position:absolute;margin-top:200px;">
     <a class="twitter-timeline"
-       width="270"
-       height="400"
+       width="200"
+       height="350"
        href="https://twitter.com/hashtag/newhorizons" 
        data-widget-id="617072424996216833">Top #newhorizons Tweets</a>
 </div>
