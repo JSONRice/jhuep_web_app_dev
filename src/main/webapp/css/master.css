@@ -47,7 +47,7 @@ table {
 .main-title, .title {
     float: left;    
     letter-spacing: 5px;
-    font-size: 45pt;
+    font-size: 40pt;
 }
 
 .title {
@@ -165,4 +165,18 @@ h1 {
 .time {
     font-weight: bold !important;
     font-family: Verdana !important;
+}
+
+/**
+ * Discoveries page:
+ **/
+#planets {
+    color: white !important;
+    background-color: black !important;
+    width: 100% !important;    
+    height: 125px !important;    
+    overflow: auto;    
+}
+
+#planetselection {
 }
