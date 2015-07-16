@@ -54,18 +54,6 @@ textarea {
 }
 
 /**
- Make sure that the additional options disregards floats so that it appears at the bottom.
-**/
-#additionaloptions {
-	clear:both;
-}
-
-#additionaloptions input {
-    position:relative;
-    float:left;
-}
-
-/**
  Forces the footer to anchor onto the bottom of the page.
 **/
 #footer {

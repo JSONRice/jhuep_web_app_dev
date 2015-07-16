@@ -51,7 +51,7 @@ table {
 }
 
 .title {
-    font-size: 20pt;
+    font-size: 15pt;
     font-weight: bold;
 }
 
@@ -167,6 +167,11 @@ h1 {
     font-family: Verdana !important;
 }
 
+#checkboxerror {
+    font-weight: bold;
+    color: red;
+}
+
 /**
  * Discoveries page:
  **/
@@ -176,7 +181,4 @@ h1 {
     width: 100% !important;    
     height: 125px !important;    
     overflow: auto;    
-}
-
-#planetselection {
 }
