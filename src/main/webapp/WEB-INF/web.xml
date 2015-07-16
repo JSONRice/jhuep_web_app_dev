@@ -8,7 +8,6 @@
     <servlet>
         <servlet-name>StartupServlet</servlet-name>
         <servlet-class>setup.StartupServlet</servlet-class>
-        
     </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>

@@ -17,17 +17,25 @@
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
+        <jsp:useBean id="user" scope="session" class="resources.newhorizons.domain.UserSessionBean">
+        <jsp:setProperty name="user"  property="name" value="NewHorizonUser" />
+
+        </jsp:useBean>
+       
         <table>
+            
             <tr>
                 <td>
-        <h1 class="main-title">Gift Shop</h1>            
+                    <h1 class="main-title">Gift Shop</h1>            
                 </td>
             </tr>                
             <tr>                
                 <td>            
                     <h1 class="title">Coming Soon!</h1>
+                    
                 </td>
             </tr>
+            <tr><td>Welcome ${user.name}!</td></tr>
         </table>
     </body>
 </html>
