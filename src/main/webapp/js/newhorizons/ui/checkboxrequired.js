@@ -23,6 +23,8 @@ $(function () {
         else {
             // clear errors:
             $('#checkboxerror').html('');
+            // reset flag:
+            checkedAtLeastOne = false;
             return true;
         }
     });
