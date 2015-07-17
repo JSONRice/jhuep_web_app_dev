@@ -43,12 +43,19 @@
                     <form name="feedback" id="feedback" action="#" method="post">
                         <fieldset id="contactinfo">
                             <legend>Contact Information</legend>
-                            <label for="name">Name</label> 
-                            <input type="text" name="name" autofocus>
+                            <label for="name">Name:</label> 
+                            <input type="text" name="name" autofocus required>
                             <br/>
-                            <label for="email">E-Mail</label>
+                            <label for="email">E-Mail:</label>
                             <input type="email" name="email"
-                                   title="Format must be: someuser@host.dom"> 
+                                   title="Format must be: someuser@host.dom" required> 
+                            <br/>
+                            <lable for="suggestions">Suggestions:</label>
+                            <br/>
+                            <br/>
+                            <textarea name="suggestions" id="suggestions" maxlength="50" 
+                                      title="Must leave feedback." required></textarea>
+                            <br/>
                             <br/>
                             <span style="float: left; width: 8em;">Please rate:</span>
                             <span class="rating">
@@ -58,12 +65,6 @@
                                 <input type="radio" id="star2" id="rating" name="rating" value="2" /><label for="star2" title="Disatisfied">2 stars</label>
                                 <input type="radio" id="star1" id="rating" name="rating" value="1" /><label for="star1" title="Very Disatisfied">1 star</label>
                             </span>                            
-                            <!--
-                            <label for="rating">Rating:</label>
-                            <div class="rating">
-                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                            </div>
-                            -->
                             <br/>
                             <br/>
                             <input type="submit" id="submission" value="Send Feedback">                        

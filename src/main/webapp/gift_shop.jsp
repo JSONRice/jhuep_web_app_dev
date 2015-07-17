@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!-- COMMENTING OUT SINCE MEMORY IS NOT ALLOCATED (e.g. Make Controller)
+jsp:useBean id="user" class="resources.newhorizons.domain.UserSessionBean" scope="session"/
+jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
+-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,13 +21,7 @@
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
-        <jsp:useBean id="user" scope="session" class="resources.newhorizons.domain.UserSessionBean">
-        <jsp:setProperty name="user"  property="name" value="NewHorizonUser" />
-
-        </jsp:useBean>
-       
         <table>
-            
             <tr>
                 <td>
                     <h1 class="main-title">Gift Shop</h1>            
@@ -32,10 +30,12 @@
             <tr>                
                 <td>            
                     <h1 class="title">Coming Soon!</h1>
-                    
+
                 </td>
             </tr>
+            <!--
             <tr><td>Welcome ${user.name}!</td></tr>
+            -->
         </table>
     </body>
 </html>
