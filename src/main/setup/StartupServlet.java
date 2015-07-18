@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.Resource;
 //import javax.activation.DataSource;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -29,6 +30,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Matt
  */
 public class StartupServlet extends HttpServlet {
+    @Resource(name = "NewHorizonsMysql")
+    private DataSource newHorizonsMysql;
 private Connection conn;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,17 +45,21 @@ private Connection conn;
     
     public void init(ServletConfig config) throws ServletException {
       	
+        
+        
+        
+        
 		InitialContext cxt = null;
-		DataSource ds = null;
+		//DataSource ds = null;
 		try {
 			cxt = new InitialContext();
-			ds = (DataSource)cxt.lookup("java:/comp/env/jdbc/testDB");
+			newHorizonsMysql = (DataSource)cxt.lookup("java:/comp/env/jdbc/mysql");
 		}
 		catch (NamingException ex) {
 			throw new ServletException("naming context error", ex);
 		}
 		try {
-			conn = ds.getConnection();
+			conn = newHorizonsMysql.getConnection();
                      
 		}
 		catch (SQLException ex) {
@@ -61,7 +68,7 @@ private Connection conn;
     try {
        
         Statement stmnt = conn.createStatement();
-        stmnt.executeUpdate("create table test_table2 (user_name int)");
+        stmnt.executeUpdate("create or replace table test_table2 (user_name int)");
         stmnt.executeUpdate("insert into test_table2 values (3)");
         ResultSet rs = stmnt.executeQuery("select * from test_table2");
         //ResultSet rs = stmnt.executeQuery("insert into test_table values (2)");
