@@ -43,7 +43,7 @@ private Connection conn;
      * @throws IOException if an I/O error occurs
      */
     
-    public void init(ServletConfig config) throws ServletException {
+    public void init() throws ServletException {
       	
         
         
@@ -53,7 +53,7 @@ private Connection conn;
 		//DataSource ds = null;
 		try {
 			cxt = new InitialContext();
-			newHorizonsMysql = (DataSource)cxt.lookup("java:/comp/env/jdbc/mysql");
+			newHorizonsMysql = (DataSource)cxt.lookup("java:/comp/env/NewHorizonsMysql");
 		}
 		catch (NamingException ex) {
 			throw new ServletException("naming context error", ex);
@@ -68,26 +68,12 @@ private Connection conn;
     try {
        
         Statement stmnt = conn.createStatement();
-        stmnt.executeUpdate("create or replace table test_table2 (user_name int)");
+        stmnt.executeUpdate("create table test_table2 (user_name int)");
         stmnt.executeUpdate("insert into test_table2 values (3)");
         ResultSet rs = stmnt.executeQuery("select * from test_table2");
         //ResultSet rs = stmnt.executeQuery("insert into test_table values (2)");
         System.out.println(rs.toString());
-        /*
-        try {
-        Connection conn;
-        String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-        String dbName = "NewHorizons";
-        String connectionURL = "jdbc:derby:" + dbName + ";create=true";
-        String createString = "CREATE TABLE ADDRESSBOOKTbl (NAME VARCHAR(32) NOT NULL, ADDRESS VARCHAR(50) NOT NULL)";
-        Class.forName(driver);
-        conn = DriverManager.getConnection(connectionURL);
-        } catch (ClassNotFoundException ex) {
-        Logger.getLogger(StartupServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-        Logger.getLogger(StartupServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
+   
     } catch (SQLException ex) {
         Logger.getLogger(StartupServlet.class.getName()).log(Level.SEVERE, null, ex);
     } 
