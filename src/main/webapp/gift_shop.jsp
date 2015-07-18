@@ -21,7 +21,7 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
-        <form id="form" action="login" method="post">
+        <form id="form" action="loginpage" method="post">
             <table>
                 <tr>
                     <td>

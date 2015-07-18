@@ -7,6 +7,7 @@ package resources.newhorizons.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,22 +33,9 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h4>Need to finish the LoginController and additional Gift Shop pages and controllers.</h4>");
-            out.println("<h4>Also need to decide on a database and stick with it. :o)</h4>");            
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
+        RequestDispatcher resultsDispatcher
+                = getServletConfig().getServletContext().getRequestDispatcher("/gift_shop_logged_in.jsp");
+        resultsDispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
