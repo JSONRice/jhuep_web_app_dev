@@ -12,7 +12,7 @@
 html, body {
 }
 
-body {
+body, fieldset {
     background-color: black;
     color: #FFFFFF;
     font-family:"Times New Roman";
@@ -61,7 +61,7 @@ table {
     padding-left: 0px !important;
 }
 
-.content .text {
+.content, .text {
     position: absolute;
     font-family: sans-serif;
     // background-color: rgba(0,0,0,0.8);

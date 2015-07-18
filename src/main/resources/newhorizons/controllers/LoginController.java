@@ -1,22 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package resources.newhorizons.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ *
  * @author jsnrice
  */
-public class MainController extends HttpServlet {
-
-    private final static Logger LOGGER = Logger.getLogger(MainController.class.getName());
+// @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
+public class LoginController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,27 +38,16 @@ public class MainController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet MainController</title>");            
+            out.println("<title>Servlet LoginController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h4>Need to finish the MainController</h4>");     
+            out.println("<h4>Need to finish the LoginController and additional Gift Shop pages and controllers.</h4>");
+            out.println("<h4>Also need to decide on a database and stick with it. :o)</h4>");            
             out.println("</body>");
             out.println("</html>");
         } finally {
             out.close();
-        }        
-    }
-
-    /**
-     * @description Given a Throwable (Exception) convert the stack trace to a String and return.
-     * @param e
-     * @return 
-     */
-    public static String convertStackTrace(Throwable t) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        t.printStackTrace(pw);
-        return sw.toString();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -95,7 +86,7 @@ public class MainController extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "NEWHORIZONS Main Servlet Controller for JHU EP Web App Dev";
+        return "Gift Shop Secure Login Controller";
     }// </editor-fold>
 
 }

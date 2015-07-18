@@ -21,21 +21,35 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
-        <table>
-            <tr>
-                <td>
-                    <h1 class="main-title">Gift Shop</h1>            
-                </td>
-            </tr>                
-            <tr>                
-                <td>            
-                    <h1 class="title">Coming Soon!</h1>
-
-                </td>
-            </tr>
-            <!--
-            <tr><td>Welcome ${user.name}!</td></tr>
-            -->
-        </table>
+        <form id="form" action="login" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <h1 class="main-title">Gift Shop</h1>            
+                    </td>
+                </tr>                
+                <tr class="empty-row"/>
+                <tr>
+                    <td>
+                        <fieldset id="credentials">
+                            <legend>Login Credentials</legend>
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username"/>
+                            <br/> 
+                            <label for="passwd">Password:</label> 
+                            <input type="password" name="passwd" required/> 
+                            <br/><br/>
+                            <div id="submitbuttons">
+                                <input type="submit" value="submit"/> 
+                                <input type="button" value="new user"/>
+                            </div>
+                        </fieldset>
+                    </td>
+                </tr>
+                <!--
+                        <tr><td>Welcome ${user.name}!</td></tr>
+                        -->
+            </table>
+        </form>
     </body>
 </html>
