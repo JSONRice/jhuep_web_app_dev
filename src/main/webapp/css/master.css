@@ -16,6 +16,7 @@ body, fieldset {
     background-color: black;
     color: #FFFFFF;
     font-family:"Times New Roman";
+    background-repeat: repeat;    
 }
 
 /*** 
@@ -32,6 +33,7 @@ body::after {
     right: 0;
     position: absolute;
     z-index: -1;     
+    background-repeat: repeat;    
 }
 
 /**
@@ -181,4 +183,16 @@ h1 {
     width: 100% !important;    
     height: 125px !important;    
     overflow: auto;    
+}
+
+/**
+ * Gift Shope pages:
+ **/
+.item {
+    text-align: center;
+}
+
+.itemimage {
+    width:100px;
+    height:100px    
 }
