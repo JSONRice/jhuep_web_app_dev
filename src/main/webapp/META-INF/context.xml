@@ -1,4 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/jhuep_web_app_dev">
-    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="NewHorizonsMysql" password="nhpass" type="javax.sql.DataSource" url="jdbc:mysql://db4free.net:3306/newhorizons?zeroDateTimeBehavior=convertToNull" username="nhuser"></Resource>
 </Context>

@@ -5,7 +5,9 @@
  */
 package resources.newhorizons.services;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import java.sql.*;
+import java.util.Arrays;
 import javax.sql.DataSource;
 import javax.naming.InitialContext;
 
@@ -17,9 +19,19 @@ public class ConnectionPool {
     private ConnectionPool() {
         try {
             InitialContext ic = new InitialContext();
-            dataSource = (DataSource) ic.lookup("java:/comp/env/NewHorizonsMysql");
-        } catch (Exception e) {
-            e.printStackTrace();
+            MysqlDataSource dataSourceMsql = new MysqlDataSource();
+            dataSourceMsql.setDatabaseName("newhorizons");
+            dataSourceMsql.setUser("nhuser");
+            dataSourceMsql.setPassword("nhpass");
+            dataSourceMsql.setServerName("db4free.net");
+            //<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="NewHorizonsMysql" password="nhpass" type="javax.sql.DataSource" url="jdbc:mysql://db4free.net:3306/newhorizons?zeroDateTimeBehavior=convertToNull" username="nhuser"></Resource>
+            dataSource = (DataSource) dataSourceMsql;
+            
+            
+            //dataSource = (DataSource) ic.lookup("java:/comp/env/NewHorizonsMysql");
+            } catch (Exception e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+            
         }
     }
 

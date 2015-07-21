@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import resources.newhorizons.domain.UserSessionBean;
 
 /**
@@ -14,21 +15,25 @@ import resources.newhorizons.domain.UserSessionBean;
 public class UserSessionDB {
 
     public static int insert(UserSessionBean user) {
+        System.out.println("UserSessionDB Insert Start");
         ConnectionPool pool = ConnectionPool.getInstance();
+        System.out.println("Received instance from pool");
         Connection connection = pool.getConnection();
+        System.out.println("Received connection");
         PreparedStatement ps = null;
         String query
-                = "INSERT INTO User (FirstName, LastName, "
+                = "INSERT INTO user (FirstName, LastName, "
                 + "EmailAddress) "
                 + "VALUES (?, ?, ?)";
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getLastName());
-            ps.setString(3, user.getEmailAddress());
+            ps.setString(3, user.getEmailAddress()); 
+            System.out.println(ps.toString());
             return ps.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(Arrays.toString(e.getStackTrace()));
             return 0;
         } finally {
             DBUtil.closePreparedStatement(ps);
@@ -41,7 +46,7 @@ public class UserSessionDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "UPDATE User SET "
+        String query = "UPDATE user SET "
                 + "FirstName = ?, "
                 + "LastName = ?, "
                 + "WHERE EmailAddress = ?";
@@ -65,7 +70,7 @@ public class UserSessionDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "DELETE FROM User "
+        String query = "DELETE FROM user "
                 + "WHERE EmailAddress = ?";
 
         try {
@@ -87,7 +92,7 @@ public class UserSessionDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String query = "SELECT EmailAddress FROM User "
+        String query = "SELECT EmailAddress FROM user "
                 + "WHERE EmailAddress = ?";
         try {
             ps = connection.prepareStatement(query);
@@ -110,7 +115,7 @@ public class UserSessionDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String query = "SELECT * FROM User "
+        String query = "SELECT * FROM user "
                 + "WHERE EmailAddress = ?";
         try {
             ps = connection.prepareStatement(query);

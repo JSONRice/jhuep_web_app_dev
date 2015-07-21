@@ -5,6 +5,8 @@
  */
 package setup;
 
+import resources.newhorizons.domain.UserSessionBean;
+import resources.newhorizons.services.UserSessionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -30,9 +32,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Matt
  */
 public class StartupServlet extends HttpServlet {
-    @Resource(name = "NewHorizonsMysql")
-    private DataSource newHorizonsMysql;
-private Connection conn;
+    //@Resource(name = "NewHorizonsMysql")
+    //private DataSource newHorizonsMysql;
+//private Connection conn;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,43 +45,55 @@ private Connection conn;
      * @throws IOException if an I/O error occurs
      */
     
-    public void init() throws ServletException {
-      	
-        
-        
-        
-        
-		InitialContext cxt = null;
-		//DataSource ds = null;
-		try {
-			cxt = new InitialContext();
-			newHorizonsMysql = (DataSource)cxt.lookup("java:/comp/env/NewHorizonsMysql");
-		}
-		catch (NamingException ex) {
-			throw new ServletException("naming context error", ex);
-		}
-		try {
-			conn = newHorizonsMysql.getConnection();
-                     
-		}
-		catch (SQLException ex) {
-			throw new ServletException("connection error", ex);
-		}  
-    try {
-       
-        Statement stmnt = conn.createStatement();
-        stmnt.executeUpdate("create table test_table2 (user_name int)");
-        stmnt.executeUpdate("insert into test_table2 values (3)");
-        ResultSet rs = stmnt.executeQuery("select * from test_table2");
-        //ResultSet rs = stmnt.executeQuery("insert into test_table values (2)");
-        System.out.println(rs.toString());
-   
-    } catch (SQLException ex) {
-        Logger.getLogger(StartupServlet.class.getName()).log(Level.SEVERE, null, ex);
-    } 
-} 
+public void init(){
+    
+}
+//    public void init() throws ServletException {
+//      	
+//        
+//        
+//        
+//        
+//		InitialContext cxt = null;
+//		//DataSource ds = null;
+//		try {
+//			cxt = new InitialContext();
+//			newHorizonsMysql = (DataSource)cxt.lookup("java:/comp/env/NewHorizonsMysql");
+//		}
+//		catch (NamingException ex) {
+//			throw new ServletException("naming context error", ex);
+//		}
+//		try {
+//			conn = newHorizonsMysql.getConnection();
+//                     
+//		}
+//		catch (SQLException ex) {
+//			throw new ServletException("connection error", ex);
+//		}  
+//    try {
+//       
+//        Statement stmnt = conn.createStatement();
+//        stmnt.executeUpdate("create table test_table2 (user_name int)");
+//        stmnt.executeUpdate("insert into test_table2 values (3)");
+//        ResultSet rs = stmnt.executeQuery("select * from test_table2");
+//        //ResultSet rs = stmnt.executeQuery("insert into test_table values (2)");
+//        System.out.println(rs.toString());
+//   
+//    } catch (SQLException ex) {
+//        Logger.getLogger(StartupServlet.class.getName()).log(Level.SEVERE, null, ex);
+//    } 
+//} 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("Init");
+    UserSessionBean userBean = new UserSessionBean();
+    userBean.setFirstName("This");
+    userBean.setLastName("Probably Didnt Work");
+    userBean.setEmailAddress("matthew.pavan@gmail.com");
+    //System.out.println(userBean.toString());
+    System.out.println(UserSessionDB.insert(userBean));
+        
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
