@@ -19,8 +19,8 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
+        <url-pattern>/loginpage</url-pattern>
+    </servlet-mapping>    
     <servlet-mapping>
         <servlet-name>StartupServlet</servlet-name>
         <url-pattern>/StartupServlet</url-pattern>
@@ -31,13 +31,11 @@
     </session-config>       
     -->
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
-    <resource-ref>
-        <description>jdbc:mysql://db4free.net:3306/newhorizons?zeroDateTimeBehavior=convertToNull</description>
-        <res-ref-name>NewHorizonsMysql</res-ref-name>
-        <res-type>javax.sql.DataSource</res-type>
-        <res-auth>Container</res-auth>
-        <res-sharing-scope>Shareable</res-sharing-scope>
-    </resource-ref>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>
