@@ -8,7 +8,7 @@
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>resources.newhorizons.controllers.LoginController</servlet-class>
-    </servlet>    
+    </servlet>
     <servlet>
         <servlet-name>StartupServlet</servlet-name>
         <servlet-class>setup.StartupServlet</servlet-class>
@@ -31,11 +31,11 @@
     </session-config>       
     -->
     <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
