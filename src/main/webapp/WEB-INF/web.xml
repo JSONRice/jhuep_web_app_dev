@@ -13,6 +13,10 @@
         <servlet-name>StartupServlet</servlet-name>
         <servlet-class>setup.StartupServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContactUsController</servlet-name>
+        <servlet-class>resources.newhorizons.controllers.ContactUsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/main</url-pattern>
@@ -25,17 +29,24 @@
         <servlet-name>StartupServlet</servlet-name>
         <url-pattern>/StartupServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ContactUsController</servlet-name>
+        <url-pattern>/ContactUsController</url-pattern>
+    </servlet-mapping>
     <!--
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>       
     -->
+
     <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
         <welcome-file>default.html</welcome-file>
         <welcome-file>default.htm</welcome-file>
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
-</web-app>
+\
+    </web-app>

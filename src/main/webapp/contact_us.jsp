@@ -15,7 +15,7 @@
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/indexErrorHandler.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <script>
+        <%-- <script>
             // Remove this after testing rate widget:
             $(function () {
                 $("#submission").click(function () {
@@ -23,7 +23,7 @@
                     alert("User gave a rating of: " + rating);
                 });
             });
-        </script>
+        </script> --%>
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
@@ -40,7 +40,7 @@
             </tr>
             <tr>
                 <td>
-                    <form name="feedback" id="feedback" action="#" method="post">
+                    <form name="feedback" id="feedback" action="ContactUsController" method="post">
                         <fieldset id="contactinfo">
                             <legend>Contact Information</legend>
                             <label for="name">Name:</label> 
