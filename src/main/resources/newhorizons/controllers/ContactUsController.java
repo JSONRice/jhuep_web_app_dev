@@ -14,6 +14,8 @@ package resources.newhorizons.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServlet;
@@ -22,15 +24,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import resources.newhorizons.domain.EmailSenderBean;
 
-import java.util.*;
-import java.io.*;
-
 /**
  *
  * @author Sajjad
  */
 public class ContactUsController extends HttpServlet {
 
+    private final static Logger LOGGER = Logger.getLogger(ContactUsController.class.getName());
+
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -71,31 +73,29 @@ public class ContactUsController extends HttpServlet {
             {
                 EmailSenderBean.sendMail("newhorizonsteamd@gmail.com", 
                                     "newhorizonsteamd@gmail.com", name, 
-                                    email + "\n" + suggestions + "\n" + rating, 
+                                    email + "\n" + suggestions + "\n" + rating + " star rating", 
                                     false);
                 emailstatus = "Email Sent to New Horizon Team D. Thank you for your suggestions.";
             }
             catch (MessagingException e)
             {
-                System.out.println("\nERROR in Sending Email.\n");
-                System.out.println(e.getMessage());
-                emailstatus = "\nERROR in Sending Email.\n" + e.getMessage().toString();
+                LOGGER.log(Level.SEVERE, "\nSending email failed:\n");
+                LOGGER.log(Level.SEVERE, e.getMessage());                
+                emailstatus = "\nERROR in Sending Email.\n" + e.getMessage();
             }
             
             //forward to email confirmation page to let the
             //user know email has been either sent or not sent
             request.setAttribute("emailstatus", emailstatus);
             RequestDispatcher resultsDispatcher
-            = getServletConfig().getServletContext().getRequestDispatcher("/email_confirmation.jsp");
+                = getServletConfig().getServletContext().getRequestDispatcher("/email_confirmation.jsp");
             resultsDispatcher.forward(request, response);
             
         } finally {
-            System.out.println("\n\nFROM ContactUsController out.close()" );
+            LOGGER.log(Level.INFO, "\n\nClosing output stream in ContactUsController");
             out.close();
         }
-        
-
-        
+        return;        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -134,7 +134,7 @@ public class ContactUsController extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Contact Us Controller";
     }// </editor-fold>
 
 }

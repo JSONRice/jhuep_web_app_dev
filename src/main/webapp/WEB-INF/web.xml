@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-    <display-name>jhuep_web_app_dev_personal</display-name>
+    <display-name>jhuep_web_app_dev</display-name>
     <servlet>
         <servlet-name>MainController</servlet-name>
         <servlet-class>resources.newhorizons.controllers.MainController</servlet-class>
@@ -29,24 +29,18 @@
         <servlet-name>StartupServlet</servlet-name>
         <url-pattern>/StartupServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>ContactUsController</servlet-name>
-        <url-pattern>/ContactUsController</url-pattern>
+        <url-pattern>/contactus</url-pattern>
     </servlet-mapping>
     <!--
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>       
     -->
-
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
-        <welcome-file>default.html</welcome-file>
-        <welcome-file>default.htm</welcome-file>
-        <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
-\
-    </web-app>
+</web-app>

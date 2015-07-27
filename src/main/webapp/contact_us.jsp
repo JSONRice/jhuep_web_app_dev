@@ -40,7 +40,7 @@
             </tr>
             <tr>
                 <td>
-                    <form name="feedback" id="feedback" action="ContactUsController" method="post">
+                    <form name="feedback" id="feedback" action="contactus" method="post">
                         <fieldset id="contactinfo">
                             <legend>Contact Information</legend>
                             <label for="name">Name:</label> 

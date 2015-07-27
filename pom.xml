@@ -33,8 +33,6 @@
       <version>7.0</version>
       <type>jar</type>
     </dependency>    
-    
-    
     <!-- Spring 3 dependencies -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -45,14 +43,18 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>${spring.version}</version>
-      </dependency>
-      <dependency>
+    </dependency>
+    <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.36</version>
-      </dependency>
+    </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.5.0</version>
+    </dependency>
   </dependencies>
-
   <build>
     <directory>target</directory>
     <outputDirectory>target/classes</outputDirectory>
