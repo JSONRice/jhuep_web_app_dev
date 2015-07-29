@@ -22,14 +22,16 @@ public class UserSessionDB {
         System.out.println("Received connection");
         PreparedStatement ps = null;
         String query
-                = "INSERT INTO user (FirstName, LastName, "
-                + "EmailAddress) "
-                + "VALUES (?, ?, ?)";
+                = "INSERT INTO NH_USERS (username, password, address1, address2,"
+                + " email) "
+                + "VALUES (?, ?, ?, ?, ?)";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getFirstName());
-            ps.setString(2, user.getLastName());
-            ps.setString(3, user.getEmailAddress()); 
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getAddress1());
+            ps.setString(4, user.getAddress2());
+            ps.setString(5, user.getEmailAddress()); 
             System.out.println(ps.toString());
             return ps.executeUpdate();
         } catch (SQLException e) {
@@ -46,15 +48,19 @@ public class UserSessionDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "UPDATE user SET "
-                + "FirstName = ?, "
-                + "LastName = ?, "
-                + "WHERE EmailAddress = ?";
+        String query = "UPDATE NH_USERS SET "
+                + "username = ?, "
+                + "password = ?, "
+                + "address1 = ?. "
+                + "address2 = ?. "
+                + "WHERE email = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getFirstName());
-            ps.setString(2, user.getLastName());
-            ps.setString(3, user.getEmailAddress());
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getAddress1());
+            ps.setString(4, user.getAddress2());
+            ps.setString(5, user.getEmailAddress());
             return ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,8 +76,8 @@ public class UserSessionDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "DELETE FROM user "
-                + "WHERE EmailAddress = ?";
+        String query = "DELETE FROM NH_USERS "
+                + "WHERE email = ?";
 
         try {
             ps = connection.prepareStatement(query);
@@ -92,8 +98,8 @@ public class UserSessionDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String query = "SELECT EmailAddress FROM user "
-                + "WHERE EmailAddress = ?";
+        String query = "SELECT email FROM NH_USERS "
+                + "WHERE email = ?";
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, emailAddress);
@@ -115,8 +121,8 @@ public class UserSessionDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String query = "SELECT * FROM user "
-                + "WHERE EmailAddress = ?";
+        String query = "SELECT * FROM NH_USERS "
+                + "WHERE email = ?";
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, emailAddress);
@@ -124,11 +130,12 @@ public class UserSessionDB {
             UserSessionBean user = null;
             if (rs.next()) {
                 user = new UserSessionBean();
-                user.setFirstName(
-                        rs.getString("FirstName"));
-                user.setLastName(rs.getString("LastName"));
-                user.setEmailAddress(
-                        rs.getString("EmailAddress"));
+                user.setUsername(
+                        rs.getString("username"));
+                user.setAddress1(rs.getString("address1"));
+                user.setAddress1(rs.getString("address2"));
+                user.setEmailAddress(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
             }
             return user;
         } catch (SQLException e) {

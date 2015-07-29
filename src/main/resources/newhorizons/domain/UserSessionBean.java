@@ -10,9 +10,69 @@ import java.io.Serializable;
 
 public class UserSessionBean implements Serializable{
 
-    private String firstName;
-    private String lastName;
+    private String username;
+    private String address1;
+    private String address2;
     private String emailAddress;
+    private String password;
+
+    
+
+    /**
+     * Get the value of address2
+     *
+     * @return the value of address2
+     */
+    public String getAddress2() {
+        return address2;
+    }
+
+    /**
+     * Set the value of address2
+     *
+     * @param address2 new value of address2
+     */
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    /**
+     * Get the value of address1
+     *
+     * @return the value of address1
+     */
+    public String getAddress1() {
+        return address1;
+    }
+
+    /**
+     * Set the value of address1
+     *
+     * @param address1 new value of address1
+     */
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    
+    /**
+     * Get the value of password
+     *
+     * @return the value of password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Set the value of password
+     *
+     * @param password new value of password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     /**
      * Get the value of emailAddress
@@ -38,8 +98,8 @@ public class UserSessionBean implements Serializable{
      *
      * @return the value of lastName
      */
-    public String getLastName() {
-        return lastName;
+    public String getUsername() {
+        return username;
     }
 
     /**
@@ -47,28 +107,12 @@ public class UserSessionBean implements Serializable{
      *
      * @param lastName new value of lastName
      */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 
-    /**
-     * Get the value of firstName
-     *
-     * @return the value of firstName
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * Set the value of firstName
-     *
-     * @param firstName new value of firstName
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  
 
     
     
