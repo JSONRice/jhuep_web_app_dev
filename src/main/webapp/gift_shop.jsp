@@ -40,15 +40,12 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
                             <input type="password" name="passwd" required/> 
                             <br/><br/>
                             <div id="submitbuttons">
-                                <input type="submit" value="submit"/> 
+                                <input type="submit" name="submituserpassword" value="submit"/> 
                                 <input type="button" value="new user"/>
                             </div>
                         </fieldset>
                     </td>
                 </tr>
-                <!--
-                        <tr><td>Welcome ${user.name}!</td></tr>
-                        -->
             </table>
         </form>
     </body>
