@@ -1,8 +1,16 @@
 package resources.newhorizons.domain;
 
 //import javax.ejb.Stateful;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import resources.newhorizons.services.UserSessionDB;
 
 /**
  *
@@ -24,6 +32,7 @@ public class UserSessionBean implements Serializable{
     {
 
     }
+
     
     
     public UserSessionBean(String firstname, String lastname, String email, 
@@ -35,8 +44,61 @@ public class UserSessionBean implements Serializable{
         this.userName = username;
         this.password = passwd;
         this.items = new Hashtable();
+        
+        if (UserSessionDB.usernameExists(userName)){
+        UserSessionDB.update(this);
+        }
+        else{
+            UserSessionDB.insert(this);
+        }
     }
     
+    
+    public String getItemsDB() {
+        
+        ObjectOutputStream os = null;
+        try {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            os = new ObjectOutputStream(bos);
+            os.writeObject(items);
+            String itemsDB = bos.toString();
+            try {
+                os.close();
+            } catch (IOException ex) {
+                Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return itemsDB;
+        } catch (IOException ex) {
+            Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                os.close();
+            } catch (IOException ex) {
+                Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
+    
+    public void setItemsDB(String itemsDb) {
+          
+        ObjectInputStream oInputStream = null;
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(itemsDb.getBytes());
+            oInputStream = new ObjectInputStream(bis);
+            items = (Dictionary) oInputStream.readObject();
+        } catch (IOException ex) {
+            Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                oInputStream.close();
+            } catch (IOException ex) {
+                Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     
 
     /**
@@ -57,7 +119,13 @@ public class UserSessionBean implements Serializable{
     public String getUserName() {
         return userName;
     }
-    
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+        UserSessionDB.update(this);
+    }
+   
+   
     
     /**
      * Set the value of emailAddress
@@ -66,6 +134,7 @@ public class UserSessionBean implements Serializable{
      */
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+        UserSessionDB.update(this);
     }
     
     
@@ -76,6 +145,7 @@ public class UserSessionBean implements Serializable{
      */
     public void setUserName(String username) {
         this.userName = username;
+        UserSessionDB.update(this);
     }
 
     /**
@@ -88,14 +158,7 @@ public class UserSessionBean implements Serializable{
         return lastName;
     }
 
-    /**
-     * Set the value of lastName
-     *
-     * @param lastName new value of lastName
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+   
 
     /**
      * Get the value of password
@@ -113,6 +176,7 @@ public class UserSessionBean implements Serializable{
      */
     public void setPassword(String passwd) {
         this.password = passwd;
+        UserSessionDB.update(this);
     }
     
     
@@ -124,6 +188,7 @@ public class UserSessionBean implements Serializable{
      */
     public String getFirstName() {
         return firstName;
+        
     }
 
     /**
@@ -132,6 +197,7 @@ public class UserSessionBean implements Serializable{
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+        UserSessionDB.update(this);
     }
     
     /**
@@ -142,7 +208,11 @@ public class UserSessionBean implements Serializable{
      */
     public void addItemToItems(String itemname, int itemprice)
     {
+        if (items == null){
+            items = new Hashtable();
+        }
         items.put(itemname, itemprice);
+        UserSessionDB.update(this);
     }
     
     

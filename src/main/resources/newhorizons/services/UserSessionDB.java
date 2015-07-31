@@ -22,14 +22,17 @@ public class UserSessionDB {
         System.out.println("Received connection");
         PreparedStatement ps = null;
         String query
-                = "INSERT INTO user (FirstName, LastName, "
-                + "EmailAddress) "
-                + "VALUES (?, ?, ?)";
+                = "INSERT INTO NH_USERS (username, password, firstName, lastName, items,"
+                + " email) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getFirstName());
-            ps.setString(2, user.getLastName());
-            ps.setString(3, user.getEmailAddress()); 
+            ps.setString(1, user.getUserName());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getFirstName());
+            ps.setString(4, user.getLastName());
+            ps.setString(5, user.getItemsDB());
+            ps.setString(6, user.getEmailAddress()); 
             System.out.println(ps.toString());
             return ps.executeUpdate();
         } catch (SQLException e) {
@@ -46,15 +49,21 @@ public class UserSessionDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "UPDATE user SET "
-                + "FirstName = ?, "
-                + "LastName = ?, "
-                + "WHERE EmailAddress = ?";
+        String query = "UPDATE NH_USERS SET "
+                + "email = ?, "
+                + "password = ?, "
+                + "firstname = ?, "
+                + "lastname = ?, "
+                + "items = ? "
+                + "WHERE username = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getFirstName());
-            ps.setString(2, user.getLastName());
-            ps.setString(3, user.getEmailAddress());
+            ps.setString(1, user.getEmailAddress());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getFirstName());
+            ps.setString(4, user.getLastName());
+            ps.setString(5, user.getItemsDB());
+            ps.setString(6, user.getUserName());
             return ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,12 +79,12 @@ public class UserSessionDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "DELETE FROM user "
-                + "WHERE EmailAddress = ?";
+        String query = "DELETE FROM NH_USERS "
+                + "WHERE username = ?";
 
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getEmailAddress());
+            ps.setString(1, user.getUserName());
             return ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,17 +95,17 @@ public class UserSessionDB {
         }
     }
 
-    public static boolean emailExists(String emailAddress) {
+    public static boolean usernameExists(String userName) {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String query = "SELECT EmailAddress FROM user "
-                + "WHERE EmailAddress = ?";
+        String query = "SELECT username FROM NH_USERS "
+                + "WHERE username = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, emailAddress);
+            ps.setString(1, userName);
             rs = ps.executeQuery();
             return rs.next();
         } catch (SQLException e) {
@@ -109,26 +118,28 @@ public class UserSessionDB {
         }
     }
 
-    public static UserSessionBean selectUser(String emailAddress) {
+    public static UserSessionBean selectUser(String userName) {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String query = "SELECT * FROM user "
-                + "WHERE EmailAddress = ?";
+        String query = "SELECT * FROM NH_USERS "
+                + "WHERE username = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, emailAddress);
+            ps.setString(1, userName);
             rs = ps.executeQuery();
             UserSessionBean user = null;
             if (rs.next()) {
                 user = new UserSessionBean();
-                user.setFirstName(
-                        rs.getString("FirstName"));
-                user.setLastName(rs.getString("LastName"));
-                user.setEmailAddress(
-                        rs.getString("EmailAddress"));
+                user.setUserName(
+                        rs.getString("username"));
+                user.setFirstName(rs.getString("firstname"));
+                user.setLastName(rs.getString("lastname"));
+                user.setItemsDB(rs.getString("items"));
+                user.setEmailAddress(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
             }
             return user;
         } catch (SQLException e) {

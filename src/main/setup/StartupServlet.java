@@ -88,8 +88,12 @@ public void init(){
         
         System.out.println("Init");
     UserSessionBean userBean = new UserSessionBean();
-    userBean.setFirstName("This");
-    userBean.setLastName("Probably Didnt Work");
+    userBean.setUserName("mjpavan");
+    userBean.setFirstName("Matt");
+    userBean.setLastName("Pavan");
+    userBean.addItemToItems("Bobsled", 200);
+    userBean.addItemToItems("Figurine", 300);
+    userBean.setPassword("newhorizons");
     userBean.setEmailAddress("matthew.pavan@gmail.com");
     //System.out.println(userBean.toString());
     System.out.println(UserSessionDB.insert(userBean));
