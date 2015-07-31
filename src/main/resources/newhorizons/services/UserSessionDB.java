@@ -22,16 +22,17 @@ public class UserSessionDB {
         System.out.println("Received connection");
         PreparedStatement ps = null;
         String query
-                = "INSERT INTO NH_USERS (username, password, address1, address2,"
+                = "INSERT INTO NH_USERS (username, password, firstName, lastName, items,"
                 + " email) "
-                + "VALUES (?, ?, ?, ?, ?)";
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getUsername());
+            ps.setString(1, user.getUserName());
             ps.setString(2, user.getPassword());
-            ps.setString(3, user.getAddress1());
-            ps.setString(4, user.getAddress2());
-            ps.setString(5, user.getEmailAddress()); 
+            ps.setString(3, user.getFirstName());
+            ps.setString(4, user.getLastName());
+            ps.setString(5, user.getItemsDB());
+            ps.setString(6, user.getEmailAddress()); 
             System.out.println(ps.toString());
             return ps.executeUpdate();
         } catch (SQLException e) {
@@ -51,16 +52,18 @@ public class UserSessionDB {
         String query = "UPDATE NH_USERS SET "
                 + "username = ?, "
                 + "password = ?, "
-                + "address1 = ?. "
-                + "address2 = ?. "
+                + "firstName = ?. "
+                + "lastName = ?. "
+                + "items = ?, "
                 + "WHERE email = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getUsername());
+            ps.setString(1, user.getUserName());
             ps.setString(2, user.getPassword());
-            ps.setString(3, user.getAddress1());
-            ps.setString(4, user.getAddress2());
-            ps.setString(5, user.getEmailAddress());
+            ps.setString(3, user.getFirstName());
+            ps.setString(4, user.getLastName());
+            ps.setString(5, user.getItemsDB());
+            ps.setString(6, user.getEmailAddress());
             return ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -130,10 +133,11 @@ public class UserSessionDB {
             UserSessionBean user = null;
             if (rs.next()) {
                 user = new UserSessionBean();
-                user.setUsername(
+                user.setUserName(
                         rs.getString("username"));
-                user.setAddress1(rs.getString("address1"));
-                user.setAddress1(rs.getString("address2"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setItemsDB(rs.getString("items"));
                 user.setEmailAddress(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
             }
