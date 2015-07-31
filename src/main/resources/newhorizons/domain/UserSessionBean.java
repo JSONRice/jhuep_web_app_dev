@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import resources.newhorizons.services.UserSessionDB;
 
 /**
  *
@@ -32,6 +33,27 @@ public class UserSessionBean implements Serializable{
 
     }
 
+    
+    
+    public UserSessionBean(String firstname, String lastname, String email, 
+            String username, String passwd)
+    {
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.emailAddress = email;
+        this.userName = username;
+        this.password = passwd;
+        this.items = new Hashtable();
+        
+        if (UserSessionDB.usernameExists(userName)){
+        UserSessionDB.update(this);
+        }
+        else{
+            UserSessionDB.insert(this);
+        }
+    }
+    
+    
     public String getItemsDB() {
         
         ObjectOutputStream os = null;
@@ -78,18 +100,6 @@ public class UserSessionBean implements Serializable{
         }
     }
     
-    public UserSessionBean(String firstname, String lastname, String email, 
-            String username, String passwd)
-    {
-        this.firstName = firstname;
-        this.lastName = lastname;
-        this.emailAddress = email;
-        this.userName = username;
-        this.password = passwd;
-        this.items = new Hashtable();
-    }
-    
-    
 
     /**
      * Get the value of emailAddress
@@ -112,6 +122,7 @@ public class UserSessionBean implements Serializable{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+        UserSessionDB.update(this);
     }
    
    
@@ -123,6 +134,7 @@ public class UserSessionBean implements Serializable{
      */
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+        UserSessionDB.update(this);
     }
     
     
@@ -133,6 +145,7 @@ public class UserSessionBean implements Serializable{
      */
     public void setUserName(String username) {
         this.userName = username;
+        UserSessionDB.update(this);
     }
 
     /**
@@ -163,6 +176,7 @@ public class UserSessionBean implements Serializable{
      */
     public void setPassword(String passwd) {
         this.password = passwd;
+        UserSessionDB.update(this);
     }
     
     
@@ -174,6 +188,7 @@ public class UserSessionBean implements Serializable{
      */
     public String getFirstName() {
         return firstName;
+        
     }
 
     /**
@@ -182,6 +197,7 @@ public class UserSessionBean implements Serializable{
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+        UserSessionDB.update(this);
     }
     
     /**
@@ -196,6 +212,7 @@ public class UserSessionBean implements Serializable{
             items = new Hashtable();
         }
         items.put(itemname, itemprice);
+        UserSessionDB.update(this);
     }
     
     
