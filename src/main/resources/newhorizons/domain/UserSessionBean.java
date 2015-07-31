@@ -1,6 +1,7 @@
 package resources.newhorizons.domain;
 
 //import javax.ejb.Stateful;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -16,8 +17,7 @@ import resources.newhorizons.services.UserSessionDB;
  *
  * @author Matt
  */
-
-public class UserSessionBean implements Serializable{
+public class UserSessionBean implements Serializable {
 
     private String firstName;
     private String lastName;
@@ -25,80 +25,64 @@ public class UserSessionBean implements Serializable{
     private String userName;
     private String password;
     private Dictionary items;
-    
-    
-    
-    public UserSessionBean()
-    {
+
+    public UserSessionBean() {
 
     }
 
-    
-    
-    public UserSessionBean(String firstname, String lastname, String email, 
-            String username, String passwd)
-    {
-        this.firstName = firstname;
-        this.lastName = lastname;
-        this.emailAddress = email;
-        this.userName = username;
-        this.password = passwd;
-        this.items = new Hashtable();
-        
-        if (UserSessionDB.usernameExists(userName)){
-        UserSessionDB.update(this);
-        }
-        else{
+    public UserSessionBean(String firstname, String lastname, String email,
+            String username, String passwd) {
+
+        if (UserSessionDB.usernameExists(username)) {
+            UserSessionBean temp = UserSessionDB.selectUser(username);
+            this.firstName = temp.firstName;
+            this.lastName = temp.lastName;
+            this.emailAddress = temp.emailAddress;
+            this.userName = temp.userName;
+            this.password = temp.password;
+            this.items = temp.items;
+        } else {
+            this.firstName = firstname;
+            this.lastName = lastname;
+            this.emailAddress = email;
+            this.userName = username;
+            this.password = passwd;
+            this.items = new Hashtable();
+
             UserSessionDB.insert(this);
         }
     }
-    
-    
+
     public String getItemsDB() {
-        
-        ObjectOutputStream os = null;
-        try {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            os = new ObjectOutputStream(bos);
-            os.writeObject(items);
-            String itemsDB = bos.toString();
-            try {
-                os.close();
-            } catch (IOException ex) {
-                Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return itemsDB;
-        } catch (IOException ex) {
-            Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                os.close();
-            } catch (IOException ex) {
-                Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        String encoded = null;
+          try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(items);
+            objectOutputStream.close();
+            encoded = new String(Base64.encode(byteArrayOutputStream.toByteArray()));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return null;
+          return encoded;
     }
     
+
     public void setItemsDB(String itemsDb) {
-          
-        ObjectInputStream oInputStream = null;
+ byte[] bytes = Base64.decode(itemsDb);
+        Hashtable object = null;
         try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(itemsDb.getBytes());
-            oInputStream = new ObjectInputStream(bis);
-            items = (Dictionary) oInputStream.readObject();
-        } catch (IOException ex) {
-            Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                oInputStream.close();
-            } catch (IOException ex) {
-                Logger.getLogger(UserSessionBean.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(bytes));
+            object = (Hashtable) objectInputStream.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (ClassCastException e) {
+            e.printStackTrace();
         }
-    }
+        items = object;
+}
     
 
     /**
@@ -109,8 +93,7 @@ public class UserSessionBean implements Serializable{
     public String getEmailAddress() {
         return emailAddress;
     }
-    
-    
+
     /**
      * Get the value of user name
      *
@@ -124,9 +107,7 @@ public class UserSessionBean implements Serializable{
         this.lastName = lastName;
         UserSessionDB.update(this);
     }
-   
-   
-    
+
     /**
      * Set the value of emailAddress
      *
@@ -136,8 +117,7 @@ public class UserSessionBean implements Serializable{
         this.emailAddress = emailAddress;
         UserSessionDB.update(this);
     }
-    
-    
+
     /**
      * Set the value of userName
      *
@@ -153,12 +133,9 @@ public class UserSessionBean implements Serializable{
      *
      * @return the value of lastName
      */
-    public String getLastName() 
-    {
+    public String getLastName() {
         return lastName;
     }
-
-   
 
     /**
      * Get the value of password
@@ -169,17 +146,15 @@ public class UserSessionBean implements Serializable{
         return this.password;
     }
 
-    
     /**
      * Set the value of password
+     *
      * @param password new value of password
      */
     public void setPassword(String passwd) {
         this.password = passwd;
         UserSessionDB.update(this);
     }
-    
-    
 
     /**
      * Get the value of firstName
@@ -188,97 +163,82 @@ public class UserSessionBean implements Serializable{
      */
     public String getFirstName() {
         return firstName;
-        
+
     }
 
     /**
      * Set the value of firstName
+     *
      * @param firstName new value of firstName
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
         UserSessionDB.update(this);
     }
-    
+
     /**
-     * 
+     *
      * @param itemname
-     * @param itemprice 
-     * add item selected into the items dictionary
+     * @param itemprice add item selected into the items dictionary
      */
-    public void addItemToItems(String itemname, int itemprice)
-    {
-        if (items == null){
+    public void addItemToItems(String itemname, int itemprice) {
+        if (items == null) {
             items = new Hashtable();
         }
         items.put(itemname, itemprice);
         UserSessionDB.update(this);
     }
-    
-    
+
     /**
-     * 
-     * @param itemname
-     * Given an item name, remove it from the selected
-     * items dictionary
+     *
+     * @param itemname Given an item name, remove it from the selected items
+     * dictionary
      */
-    public void removeItemFromItems(String itemname)
-    {
+    public void removeItemFromItems(String itemname) {
         items.remove(itemname);
     }
 
-    
     /**
-     * Gives a list of selected items from the dictionary.
-     * Excludes the costs and only gives the keys from the 
-     * dictionary which are the selected items names.
-     * Should be called after items have been added to the 
-     * dictionary.
+     * Gives a list of selected items from the dictionary. Excludes the costs
+     * and only gives the keys from the dictionary which are the selected items
+     * names. Should be called after items have been added to the dictionary.
      */
-    public ArrayList<String> getSelectedItemsList()
-    {
+    public ArrayList<String> getSelectedItemsList() {
         ArrayList<String> selectedItemsList = null;
         selectedItemsList = Collections.list(this.items.keys());
         return selectedItemsList;
     }
- 
+
     /**
-     * 
-     * Get an individual item's price, provided
-     * the name of the item
+     *
+     * Get an individual item's price, provided the name of the item
      */
-    public int getItemPrice(String itemname)
-    {
+    public int getItemPrice(String itemname) {
         int price = 0;
         price = (Integer) this.items.get(itemname);
         return price;
     }
-    
+
     /**
-     * 
-     * Add prices of all the items in the dictionary
-     * which have been selected by the user
+     *
+     * Add prices of all the items in the dictionary which have been selected by
+     * the user
      */
-    public int getSelectedItemsTotalCost()
-    {
+    public int getSelectedItemsTotalCost() {
         ArrayList<String> selectedItemsList = this.getSelectedItemsList();
-        
+
         int cost = 0;
-        for (int i = 0; i < selectedItemsList.size(); i++)
-        {
+        for (int i = 0; i < selectedItemsList.size(); i++) {
             cost = cost + (Integer) this.items.get(selectedItemsList.get(i));
         }
         return cost;
     }
-    
-    
-    public String getUserInfoString()
-    {
-        String tempS = this.firstName + " " + this.lastName + " " + 
-                       this.emailAddress + " " + this.userName + "\n" +
-                       this.items.toString();
+
+    public String getUserInfoString() {
+        String tempS = this.firstName + " " + this.lastName + " "
+                + this.emailAddress + " " + this.userName + "\n"
+                + this.items.toString();
         return tempS;
     }
-    
-    
+
 }

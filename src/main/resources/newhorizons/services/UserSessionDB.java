@@ -64,6 +64,7 @@ public class UserSessionDB {
             ps.setString(4, user.getLastName());
             ps.setString(5, user.getItemsDB());
             ps.setString(6, user.getUserName());
+            System.out.println(ps.toString());
             return ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,6 +86,7 @@ public class UserSessionDB {
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, user.getUserName());
+            System.out.println(ps.toString());
             return ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,6 +108,7 @@ public class UserSessionDB {
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, userName);
+            System.out.println(ps.toString());
             rs = ps.executeQuery();
             return rs.next();
         } catch (SQLException e) {
@@ -129,6 +132,7 @@ public class UserSessionDB {
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, userName);
+            System.out.println(ps.toString());
             rs = ps.executeQuery();
             UserSessionBean user = null;
             if (rs.next()) {
