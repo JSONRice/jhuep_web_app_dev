@@ -17,6 +17,14 @@
         <servlet-name>ContactUsController</servlet-name>
         <servlet-class>resources.newhorizons.controllers.ContactUsController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckoutController</servlet-name>
+        <servlet-class>resources.newhorizons.controllers.CheckoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentController</servlet-name>
+        <servlet-class>resources.newhorizons.controllers.PaymentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/main</url-pattern>
@@ -38,6 +46,15 @@
         <session-timeout>30</session-timeout>
     </session-config>       
     -->
+
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/CheckoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentController</servlet-name>
+        <url-pattern>/PaymentController</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>
