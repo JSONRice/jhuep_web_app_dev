@@ -25,6 +25,10 @@
         <servlet-name>PaymentController</servlet-name>
         <servlet-class>resources.newhorizons.controllers.PaymentController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PaymentCompleteController</servlet-name>
+        <servlet-class>resources.newhorizons.controllers.PaymentCompleteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/main</url-pattern>
@@ -32,7 +36,7 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/loginpage</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StartupServlet</servlet-name>
         <url-pattern>/StartupServlet</url-pattern>
@@ -46,7 +50,6 @@
         <session-timeout>30</session-timeout>
     </session-config>       
     -->
-
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/CheckoutController</url-pattern>
@@ -55,9 +58,22 @@
         <servlet-name>PaymentController</servlet-name>
         <url-pattern>/PaymentController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentCompleteController</servlet-name>
+        <url-pattern>/PaymentComplete</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
     </welcome-file-list>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>secure</web-resource-name>
+            <url-pattern>/PaymentController</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
 </web-app>
