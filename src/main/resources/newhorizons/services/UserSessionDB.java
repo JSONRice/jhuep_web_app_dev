@@ -121,6 +121,37 @@ public class UserSessionDB {
         }
     }
 
+        public static boolean usernameLogin(String userName, String password) {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "SELECT password FROM NH_USERS "
+                + "WHERE username = ?";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userName);
+            System.out.println(ps.toString());
+            rs = ps.executeQuery();
+            if(rs.next()){
+                System.out.println(rs.getString("password") + " = " + password);
+                return (rs.getString("password").equals(password));
+            }
+            else{
+            return false;
+            }
+            } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+
+    
     public static UserSessionBean selectUser(String userName) {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();

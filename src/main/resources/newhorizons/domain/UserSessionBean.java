@@ -34,13 +34,7 @@ public class UserSessionBean implements Serializable {
             String username, String passwd) {
 
         if (UserSessionDB.usernameExists(username)) {
-            UserSessionBean temp = UserSessionDB.selectUser(username);
-            this.firstName = temp.firstName;
-            this.lastName = temp.lastName;
-            this.emailAddress = temp.emailAddress;
-            this.userName = temp.userName;
-            this.password = temp.password;
-            this.items = temp.items;
+            System.out.println("ERROR USEARNAME EXISTS!!!");
         } else {
             this.firstName = firstname;
             this.lastName = lastname;
@@ -240,5 +234,8 @@ public class UserSessionBean implements Serializable {
                 + this.items.toString();
         return tempS;
     }
-
+    
+    public void resetItems(){
+        this.items = new Hashtable();
+    }
 }

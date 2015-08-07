@@ -13,6 +13,9 @@
 -->
 
 <script src="js/newhorizons/ui/navbar.js" type="text/javascript"></script>
+<jsp:useBean id="user" scope="session" class="resources.newhorizons.domain.UserSessionBean"></jsp:useBean>
+
+    
 
 <ul class="navbar">
     <li>
@@ -25,9 +28,27 @@
         <a href="discoveries.jsp" title="Discoveries" id="discoveries">Discoveries</a>
     </li>
     <li>
-        <a href="gift_shop.jsp" title="Gift Shop" id="gift_shop">Gift Shop</a>
+        <a href="gift_shop_logged_in.jsp" title="Gift Shop" id="gift_shop">Gift Shop</a>
     </li>
     <li>
         <a href="contact_us.jsp" title="Contact Us" id="contact_us">Contact Us</a>
     </li>
 </ul>
+
+<div align='center'>    
+    
+    <%
+    if (user.getFirstName() == null){
+    %>
+    Not Logged In
+    <% 
+    }
+    else{
+        
+        %>
+        Welcome, ${user.firstName}
+        <%
+    }
+        %>
+   
+</div>

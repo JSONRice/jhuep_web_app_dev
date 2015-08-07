@@ -55,7 +55,7 @@ public class CheckoutController extends HttpServlet {
         {
 
             String[] items = request.getParameterValues("items");
-            
+            if (items != null){
             ArrayList<String> selectedItems = new ArrayList<String>(Arrays.asList(items));
 
             for (int i = 0; i < selectedItems.size(); i++)
@@ -69,7 +69,7 @@ public class CheckoutController extends HttpServlet {
             //user object now contains items and their prices
             //which have been selected by the user
             request.getSession().setAttribute("user", user);
-            
+            }
             //Send Updated user object to checkout.jsp
             //for display and calculation of cost initially
             RequestDispatcher resultsDispatcher
