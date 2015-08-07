@@ -1,15 +1,10 @@
 <%-- 
-    Document   : gift_shop
-    Created on : Jul 3, 2015, 4:30:17 PM
-    Author     : jsnrice
+    Document   : new_user
+    Created on : Aug 6, 2015, 9:30:24 PM
+    Author     : matth_000
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!-- COMMENTING OUT SINCE MEMORY IS NOT ALLOCATED (e.g. Make Controller)
-jsp:useBean id="user" class="resources.newhorizons.domain.UserSessionBean" scope="session"/
-jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
--->
-<!DOCTYPE html>
 <html>
     <head>
         <title>Gift Shop</title>
@@ -32,26 +27,30 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
                 <tr>
                     <td>
                         <fieldset id="credentials">
-                            <legend>Login Credentials</legend>
+                            <legend>New User Info</legend>
                             <label for="username">Username:</label>
                             <input type="text" id="username" name="username"/>
                             <br/> 
                             <label for="passwd">Password:</label> 
                             <input type="password" name="passwd" required/> 
+                            <br/> 
+                            <label for="firstName">First Name:</label> 
+                            <input type="text" name="firstName" required/> 
+                            <br/> 
+                            <label for="lastName">Last Name:</label> 
+                            <input type="text" name="lastName" required/> 
+                            <br/> 
+                            <label for="email">Email: </label> 
+                            <input type="text" name="email" required/> 
+                            
                             <br/><br/>
                             <div id="submitbuttons">
-                                <input type="submit" name="submituserpassword" value="submit"/> 
-                                
+                                <input type="submit" name="submitnewuser" value="submit"/>      
                             </div>
                         </fieldset>
                     </td>
                 </tr>
             </table>
         </form>
-        <div style align="center">
-        <a href="new_user.jsp">
-                                    <button>New User</button>
-                                </a>
-            </div>
     </body>
 </html>

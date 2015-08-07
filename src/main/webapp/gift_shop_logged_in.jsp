@@ -8,13 +8,27 @@
 <%@ page import="java.util.*" %>
 
 <jsp:useBean id="user" scope="session" class="resources.newhorizons.domain.UserSessionBean"></jsp:useBean>
-<jsp:useBean id="giftShopItems" scope="session" class="resources.newhorizons.domain.GiftShopItemsBean"></jsp:useBean>
+<jsp:useBean id="giftShopItems" scope="session" class="resources.newhorizons.domain.GiftShopItemsBean">
+    <%
+        giftShopItems.setItemsAndImagesDictionary();
+        giftShopItems.setItemsAndPricesDictionary();        
+    %>
+</jsp:useBean>
 
 <!--Get parameters values from the gift items bean 
 to setup items in the jsp
 -->
+
+
+<%
+        System.out.println("First name: " + user.getFirstName());
+    if (user.getFirstName() == null){
+        System.out.println("Entered redirect");
+   response.sendRedirect("gift_shop.jsp");
+    }
+%>
 <% 
-Enumeration itemkeys  = giftShopItems.getItemsKeys();
+    Enumeration itemkeys  = giftShopItems.getItemsKeys();
 %>
 
 

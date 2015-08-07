@@ -13,8 +13,8 @@ import java.util.*;
  */
 public class GiftShopItemsBean 
 {
-    private Dictionary itemsAndPrices;
-    private Dictionary itemsAndImages;
+    private Dictionary itemsAndPrices = new Hashtable();
+    private Dictionary itemsAndImages = new Hashtable();
     
     public GiftShopItemsBean()
     {
@@ -56,6 +56,7 @@ public class GiftShopItemsBean
     
     public Enumeration getItemsKeys()
     {
+        //this.setItemsAndPricesDictionary();
         Enumeration itemskeys = itemsAndPrices.keys();
         return itemskeys;
     }
