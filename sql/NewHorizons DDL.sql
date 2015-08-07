@@ -11,12 +11,18 @@ create table NH_USERS (
     PRIMARY KEY (USER_ID)
 )
 
+-- Discoveries Page
+CREATE TABLE PLANETARY_ENTITY (
+    PLANETARY_ENTITY_ID MEDIUMINT NOT NULL AUTO_INCREMENT,
+    ISPLANET BIT(0),
+    ISMOON BIT(0),
+    NAME CHAR(64),
+    ORBITING_MOON_SURVEY CHAR(200),
+    ORBITING_MOON_COUNT TINYINT,
+    RING_DATA   CHAR(200),
+    IMAGE BLOB,
+    ENTRY_LAST_UPDATED DEFAULT CURRENT_TIMESTAMP,
+    NAME CHAR(64) NOT NULL UNIQUE,    
+    PRIMARY KEY (PLANETARY_ENTITY_ID),
+)
 
---create table user (
---     UserID int not null auto_increment,
---  FirstName varchar(50),
---  LastName varchar(50),
---  EmailAddress varchar(50),
---  primary key (UserID) 
-
---)

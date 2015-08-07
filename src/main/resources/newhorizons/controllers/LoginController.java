@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/***
+ * @description The login controller manages new users and previously known user logins into the Gift Shop.
+ * @date Aug. 6, 2015
  */
 package resources.newhorizons.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -56,12 +53,12 @@ public class LoginController extends HttpServlet {
         //object has been created before or not. If not,
         //create a user object, and pass it on to 
         //gift_shop_logged_in.jsp. 
+        /*
         if (request.getParameter("submituserpassword") != null)
-        {
-            System.out.println("\n\nIN LoginController: submit");
-            
+        {  
             if (this.user == null)
             {
+        */
                 //Sample variables for user object
                 String firstname = "John";
                 String lastname  = "Doe";
@@ -95,8 +92,10 @@ public class LoginController extends HttpServlet {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
                     dispatcher.forward(request, response);
                 return; 
+                /*
             }
         }
+                */
         
         //
         //NEED TO HAVE NEW USER FUNCTIONALITY HANDLED FROM gift_shop.jsp

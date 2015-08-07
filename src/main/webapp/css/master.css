@@ -196,3 +196,7 @@ h1 {
     width:100px;
     height:100px    
 }
+
+.border {
+    outline: thin solid white;
+}

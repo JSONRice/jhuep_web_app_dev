@@ -20,7 +20,7 @@ public interface UsersDao {
  * Specifies behaviors for getting Users information
  * out of the data repository.
  * @author brucephillips
- *
+ */
 
 	
 	/**

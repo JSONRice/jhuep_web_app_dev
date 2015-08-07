@@ -14,15 +14,19 @@ package resources.newhorizons.domain;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
-import java.util.*;
-import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Sajjad
  */
-public class EmailSenderBean 
+public class EmailSenderBean
 {
+    private static final Logger LOGGER = Logger.getLogger(EmailSenderBean.class.getName());
+    private static final String ADDRESS = "NewHorizonsTeamD@gmail.com";
+    private static final String PASSWD = "newhorizons";
+    
     public static void sendMail(String to, String from, String subject, String body,
             boolean bodyIsHTML) throws MessagingException 
     {
@@ -36,14 +40,13 @@ public class EmailSenderBean
         Session session = Session.getDefaultInstance(props);
         session.setDebug(true);
         
-        System.out.println("\n\nFROM EmailSenderBean");
-        System.out.println("to: " + to);
-        System.out.println("from: " + from);
-        System.out.println("subject: " + subject);
-        System.out.println("body: " + body);
-        
-        
-        //create a message
+        LOGGER.log(Level.INFO, "\n\nFROM EmailSenderBean");
+        LOGGER.log(Level.INFO, "to: {0}", to);
+        LOGGER.log(Level.INFO, "from: {0}", from);
+        LOGGER.log(Level.INFO, "subject: {0}", subject);
+        LOGGER.log(Level.INFO, "body: {0}", body);
+                
+        // create a message
         Message message = new MimeMessage(session);
         message.setSubject(subject);
         
@@ -52,17 +55,16 @@ public class EmailSenderBean
         else
             message.setText(body);
         
-        //address the message
+        // address the message
         Address fromAddress = new InternetAddress(from);
         Address toAddress = new InternetAddress(to);
         message.setFrom(fromAddress);
         message.setRecipient(Message.RecipientType.TO, toAddress);
         
-        //send message
+        // send message
         Transport transport = session.getTransport();
-        transport.connect("NewHorizonsTeamD@gmail.com", "newhorizons");
+        transport.connect(ADDRESS, PASSWD);
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
-        
     }
 }
