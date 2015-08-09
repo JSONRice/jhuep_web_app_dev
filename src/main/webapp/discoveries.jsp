@@ -39,7 +39,8 @@
                                 <option value="mars" id="mars">Mars</option>
                                 <option value="jupiter" id="jupiter">Jupiter</option> 
                                 <option value="saturn" id="saturn">Saturn</option>
-                                <option value="uranus" id="uranus">Uranus</option>			                        
+                                <option value="uranus" id="uranus">Uranus</option>
+                                <option value="neptune" id="neptune">Neptune</option>                                
                                 <option value="pluto" id="pluto">Pluto</option>                            
                             </select>
                             <br/>
