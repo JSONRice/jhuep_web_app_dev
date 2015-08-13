@@ -25,16 +25,55 @@ public class UserSessionBean implements Serializable {
     private String userName;
     private String password;
     private Dictionary items;
+    
+    private String errorMessage;
+
+    /**
+     * Get the value of errorMessage
+     *
+     * @return the value of errorMessage
+     */
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    /**
+     * Set the value of errorMessage
+     *
+     * @param errorMessage new value of errorMessage
+     */
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 
     public UserSessionBean() {
 
     }
 
+    public UserSessionBean(String username, String passwd) {
+
+        if (UserSessionDB.usernameExists(username)) {
+            if (UserSessionDB.usernameLogin(username, passwd)){
+            System.out.println("Password Success, logging in");
+                UserSessionBean temp = UserSessionDB.selectUser(username);
+                this.firstName = temp.getFirstName();
+            this.lastName = temp.getLastName();
+            this.emailAddress = temp.getEmailAddress();
+            this.userName = temp.getUserName();
+            this.password = temp.getPassword();
+            this.items = temp.items;
+            this.errorMessage = "";
+                
+            }
+           this.errorMessage = "Password Failed";
+        } 
+    }
+    
     public UserSessionBean(String firstname, String lastname, String email,
             String username, String passwd) {
 
         if (UserSessionDB.usernameExists(username)) {
-            System.out.println("ERROR USEARNAME EXISTS!!!");
+           this.errorMessage = "Username Exists";
         } else {
             this.firstName = firstname;
             this.lastName = lastname;
@@ -42,7 +81,7 @@ public class UserSessionBean implements Serializable {
             this.userName = username;
             this.password = passwd;
             this.items = new Hashtable();
-
+            this.errorMessage = "";
             UserSessionDB.insert(this);
         }
     }

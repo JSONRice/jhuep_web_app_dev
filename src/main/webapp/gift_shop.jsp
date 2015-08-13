@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!-- COMMENTING OUT SINCE MEMORY IS NOT ALLOCATED (e.g. Make Controller)
 jsp:useBean id="user" class="resources.newhorizons.domain.UserSessionBean" scope="session"/
 jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
@@ -47,6 +48,7 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
                     </td>
                 </tr>
             </table>
+            <div style="color:#FF0000"><div style align='center'>${user.errorMessage}</div></div>
         </form>
         <div style align="center">
             <a href="new_user.jsp">

@@ -1,5 +1,7 @@
-/***
- * @description The login controller manages new users and previously known user logins into the Gift Shop.
+/**
+ * *
+ * @description The login controller manages new users and previously known user
+ * logins into the Gift Shop.
  * @date Aug. 6, 2015
  */
 package resources.newhorizons.controllers;
@@ -15,10 +17,6 @@ import javax.servlet.http.HttpSession;
 import resources.newhorizons.domain.UserSessionBean;
 import resources.newhorizons.domain.GiftShopItemsBean;
 
-    
-    
-    
-
 /**
  *
  * @author jsnrice
@@ -26,11 +24,10 @@ import resources.newhorizons.domain.GiftShopItemsBean;
 // @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
 
-    
     private UserSessionBean user = null;
     private GiftShopItemsBean giftShopItems = null;
     HttpSession session;
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,67 +38,62 @@ public class LoginController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
-    {
-        
+            throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
-        
+
         System.out.println("\n\n\nIN LoginController ProcessRequest");
-        
+
         //check if submit button from gift_shop.jsp 
         //is not null. If not null, then check if user
         //object has been created before or not. If not,
         //create a user object, and pass it on to 
         //gift_shop_logged_in.jsp. 
-        
-        if (request.getParameter("submituserpassword") != null)
-        {  
-            if (this.user == null)
-            {
-        
-                //Sample variables for user object
-                String firstname = "John";
-                String lastname  = "Doe";
-                String email     = "johndoe@gmail.com";
-                String username  = request.getParameter("username");
-                String password  = request.getParameter("passwd");
-                
-                //create the UserSessionBean object 
-                this.user = new UserSessionBean(firstname, lastname, email,
-                                                username, password); 
-                            
-                //create a session and store the User 
-                //object in the session 
-                session = request.getSession();
-                session.setAttribute("user", user); 
-                
-                
-                //create a items object that is used by 
-                //gift_shop_logged_in.jsp to populate its 
-                //items entries on the page
-                this.giftShopItems = new GiftShopItemsBean();
-                this.giftShopItems.setItemsAndImagesDictionary();
-                this.giftShopItems.setItemsAndPricesDictionary();
-                
-                //In a session object, store the gift items 
-                session.setAttribute("giftShopItems", giftShopItems); 
-                
-                System.out.println("\nif user == null, go to gift_shop_logged_in.jsp");
-                
-                String url = "/gift_shop_logged_in.jsp";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-                    dispatcher.forward(request, response);
-                return; 
-            }
+        if (request.getParameter("submitnewuser") != null) {
+            String firstName = request.getParameter("firstName");
+            String lastName = request.getParameter("lastName");
+            String email = request.getParameter("email");
+            String username = request.getParameter("username");
+            String password = request.getParameter("passwd");
+
+            //create the UserSessionBean object 
+            this.user = new UserSessionBean(firstName, lastName, email, username, password);
+
         }
-                
-        
-        //
-        //NEED TO HAVE NEW USER FUNCTIONALITY HANDLED FROM gift_shop.jsp
-        //
-        
+        if (request.getParameter("submituserpassword") != null) {
+
+            String username = request.getParameter("username");
+            String password = request.getParameter("passwd");
+
+            //create the UserSessionBean object 
+            this.user = new UserSessionBean(username, password);
+        }
+                //create a session and store the User 
+        //object in the session 
+        session = request.getSession();
+        session.setAttribute("user", user);
+
+                //create a items object that is used by 
+        //gift_shop_logged_in.jsp to populate its 
+        //items entries on the page
+        this.giftShopItems = new GiftShopItemsBean();
+        this.giftShopItems.setItemsAndImagesDictionary();
+        this.giftShopItems.setItemsAndPricesDictionary();
+
+        //In a session object, store the gift items 
+        session.setAttribute("giftShopItems", giftShopItems);
+
+        System.out.println("\nif user == null, go to gift_shop_logged_in.jsp");
+
+        String url = "/gift_shop_logged_in.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
+        return;
     }
 
+        //
+    //NEED TO HAVE NEW USER FUNCTIONALITY HANDLED FROM gift_shop.jsp
+    //
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

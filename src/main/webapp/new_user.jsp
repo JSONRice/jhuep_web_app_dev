@@ -29,7 +29,7 @@
                         <fieldset id="credentials">
                             <legend>New User Info</legend>
                             <label for="username">Username:</label>
-                            <input type="text" id="username" name="username"/>
+                            <input type="text" id="username" name="username" required/>
                             <br/> 
                             <label for="passwd">Password:</label> 
                             <input type="password" name="passwd" required/> 
