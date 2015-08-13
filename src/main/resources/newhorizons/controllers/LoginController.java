@@ -53,12 +53,12 @@ public class LoginController extends HttpServlet {
         //object has been created before or not. If not,
         //create a user object, and pass it on to 
         //gift_shop_logged_in.jsp. 
-        /*
+        
         if (request.getParameter("submituserpassword") != null)
         {  
             if (this.user == null)
             {
-        */
+        
                 //Sample variables for user object
                 String firstname = "John";
                 String lastname  = "Doe";
@@ -92,10 +92,9 @@ public class LoginController extends HttpServlet {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
                     dispatcher.forward(request, response);
                 return; 
-                /*
             }
         }
-                */
+                
         
         //
         //NEED TO HAVE NEW USER FUNCTIONALITY HANDLED FROM gift_shop.jsp

@@ -49,7 +49,7 @@ public class UserSessionBean implements Serializable {
 
     public String getItemsDB() {
         String encoded = null;
-          try {
+        try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
             objectOutputStream.writeObject(items);
@@ -58,12 +58,11 @@ public class UserSessionBean implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-          return encoded;
+        return encoded;
     }
-    
 
     public void setItemsDB(String itemsDb) {
- byte[] bytes = Base64.decode(itemsDb);
+        byte[] bytes = Base64.decode(itemsDb);
         Hashtable object = null;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(bytes));
@@ -76,8 +75,7 @@ public class UserSessionBean implements Serializable {
             e.printStackTrace();
         }
         items = object;
-}
-    
+    }
 
     /**
      * Get the value of emailAddress
@@ -234,8 +232,8 @@ public class UserSessionBean implements Serializable {
                 + this.items.toString();
         return tempS;
     }
-    
-    public void resetItems(){
+
+    public void resetItems() {
         this.items = new Hashtable();
     }
 }

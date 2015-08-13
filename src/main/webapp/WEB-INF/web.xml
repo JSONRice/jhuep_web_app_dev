@@ -29,6 +29,10 @@
         <servlet-name>PaymentCompleteController</servlet-name>
         <servlet-class>resources.newhorizons.controllers.PaymentCompleteController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DiscoveriesController</servlet-name>
+        <servlet-class>resources.newhorizons.controllers.DiscoveriesController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/main</url-pattern>
@@ -61,6 +65,10 @@
     <servlet-mapping>
         <servlet-name>PaymentCompleteController</servlet-name>
         <url-pattern>/PaymentComplete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DiscoveriesController</servlet-name>
+        <url-pattern>/discoveries</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

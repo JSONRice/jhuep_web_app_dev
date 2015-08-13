@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package resources.newhorizons.services;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
@@ -11,6 +6,10 @@ import java.util.Arrays;
 import javax.sql.DataSource;
 import javax.naming.InitialContext;
 
+/**
+ * @description Establishes a connection to the 'newhorizons' MySQL database. This provides a mechanism
+ * for connecting to the database throughout the life-cycle of the web application.
+ */
 public class ConnectionPool {
 
     private static ConnectionPool pool = null;

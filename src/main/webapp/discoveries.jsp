@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="discoveriesBean" class="resources.newhorizons.domain.DiscoveriesBean" scope="session"/>
+<jsp:setProperty name="discoveriesBean" property="*"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,10 +17,21 @@
         <script src="js/newhorizons/ui/checkboxrequired.js" type="text/javascript"></script>        
         <script src="js/indexErrorHandler.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <script type="text/javascript">
+            $(document).ready(function () {
+ 
+                $('#button-upload').click(function () {
+                    $('#spinner').show();
+                });
+            });
+        </script>        
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
-        <form name="discoveriesform" id="form" action="javascript:alert('Need to develop form submit based off of module 7')" method="post">
+        <div id="spinner" class="spinner" style="display:none;">
+            <img id="img-spinner" src="images/ajax-loader.gif" alt="Loading"/>
+        </div>
+        <form name="discoveriesform" id="form" action="discoveries" method="post">
             <table>
                 <tr>
                     <td>
@@ -58,11 +71,14 @@
                     <td>
                         <fieldset id="additionaloptions">
                             <legend>Celestial Features</legend>
-                            <input type="checkbox" name="moonsurvey" value="moonsurvey">Moon Survey</input>
+                            <input type="checkbox" name="moonsurvey" value="moonsurvey" 
+                                   ${discoveriesBean.isMoonSurveyChecked == true ? 'checked' : ''}>Moon Survey</input>
                             <br/>
-                            <input type="checkbox" name="ringdata" value="ringdata">Ring Data</input>                     
+                            <input type="checkbox" name="ringdata" value="ringdata" 
+                                   ${discoveriesBean.isRingDataChecked == true ? 'checked' : ''}>Ring Data</input>                     
                             <br/>
-                            <input type="checkbox" name="images" value="images">Images (If Available)</input>
+                            <input type="checkbox" name="images" value="images" 
+                                   ${discoveriesBean.isImagesChecked == true ? 'checked' : ''}>Images (If Available)</input>
                             <br/>
                         </fieldset>	
                     </td>
@@ -70,7 +86,7 @@
                 <tr class="empty-row"/>                
                 <tr>
                     <td>
-                        <input type="submit" value="Submit"/>
+                        <input type="submit" name="queryDiscoveries" value="Submit"/>
                     </td>
                 </tr>            
             </table>    

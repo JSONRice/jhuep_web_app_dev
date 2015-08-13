@@ -41,7 +41,7 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
                             <br/><br/>
                             <div id="submitbuttons">
                                 <input type="submit" name="submituserpassword" value="submit"/> 
-                                
+
                             </div>
                         </fieldset>
                     </td>
@@ -49,9 +49,9 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
             </table>
         </form>
         <div style align="center">
-        <a href="new_user.jsp">
-                                    <button>New User</button>
-                                </a>
-            </div>
+            <a href="new_user.jsp">
+                <button>New User</button>
+            </a>
+        </div>
     </body>
 </html>

@@ -1,24 +1,25 @@
-package setup;
+package resources.newhorizons.controllers;
 
-import resources.newhorizons.domain.UserSessionBean;
-import resources.newhorizons.services.UserSessionDB;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import resources.newhorizons.domain.DiscoveriesBean;
 
 /**
- * @description Test Servlet.
- * @author Matt
+ * @author jsnrice
  */
-public class StartupServlet extends HttpServlet {
+public class DiscoveriesController extends HttpServlet {
 
-    public void init() {
+    private final static Logger LOGGER = Logger.getLogger(DiscoveriesController.class.getName());
+    private DiscoveriesBean discoveriesBean = null;
+    private HttpSession session;
 
-    }    
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,31 +32,30 @@ public class StartupServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("Init");
-        UserSessionBean userBean = new UserSessionBean();
-        userBean.setUserName("mjpavan");
-        userBean.setFirstName("Matt");
-        userBean.setLastName("Pavan");
-        userBean.addItemToItems("Bobsled", 200);
-        userBean.addItemToItems("Figurine", 300);
-        userBean.setPassword("newhorizons");
-        userBean.setEmailAddress("matthew.pavan@gmail.com");
-        System.out.println(UserSessionDB.insert(userBean));
-
+        LOGGER.log(Level.INFO, "processRequest()");
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet StartupServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet StartupServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+
+        session = request.getSession();
+
+        // User wishes to query discoveries database and see discoveries_results.jsp
+        if (request.getParameter("queryDiscoveries") != null) {
+            discoveriesBean = new DiscoveriesBean();
+            LOGGER.log(Level.INFO, "Setting planetary entities from select[planets]");
+            discoveriesBean.setPlanetaryEntities(request.getParameterValues("planets"));
+            // Now that we the planetary entities have been set run the db query and store data for;
+            // PARAMETER_DATA, ATMOSPHERE_DATA, RINGDATA
+            discoveriesBean.planetaryEntityQuery();
+        } 
+        else if (request.getParameter("remove") != null) {
+          // TODO: user wishes to remove a planetary entity item and rerun query report:
+        }
+        
+        if (!response.isCommitted()) {
+            // Else if no errors store our updated bean and dispatch (route) to the results page:
+            session.setAttribute("discoveriesBean", discoveriesBean);
+            String url = "/discoveries_results.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
         }
     }
 
