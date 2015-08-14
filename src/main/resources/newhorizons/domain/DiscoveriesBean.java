@@ -41,7 +41,35 @@ public class DiscoveriesBean implements Serializable {
                                     "Neptune",
                                     "Pluto"
                                    };    
+    
+    public DiscoveriesBean() {
+        selectedPlanetaryEntities   = new ArrayList<String>();
         
+        // 7 planetary entities
+        selectedPlanetaryEntitiesState = new ArrayList<String>(7);
+        selectedPlanetaryEntitiesState.add("");
+        selectedPlanetaryEntitiesState.add("");
+        selectedPlanetaryEntitiesState.add("");
+        selectedPlanetaryEntitiesState.add("");
+        selectedPlanetaryEntitiesState.add("");
+        selectedPlanetaryEntitiesState.add("");
+        selectedPlanetaryEntitiesState.add("");
+        
+        isMoonSurveyChecked = false;
+        isRingDataChecked   = false;
+        isImagesChecked     = false;
+    } 
+    
+    public DiscoveriesBean(ArrayList<String> selectedPlanetaryEntities, 
+                           Boolean isMoonSurveyChecked, 
+                           Boolean isRingDataChecked, 
+                           Boolean isImagesChecked){
+        this.selectedPlanetaryEntities   = selectedPlanetaryEntities;
+        this.isMoonSurveyChecked = isMoonSurveyChecked;
+        this.isRingDataChecked   = isRingDataChecked;
+        this.isImagesChecked     = isImagesChecked;
+    }
+    
     /***
      * @description Main SQL transaction method for obataining 
      * and storing the following data items from the PLANETARY_ENTITY table:
@@ -79,24 +107,7 @@ public class DiscoveriesBean implements Serializable {
             // Add to list:
             planetaryEntityData.add(entity);
         }
-    }
-    
-    public DiscoveriesBean() {
-        selectedPlanetaryEntities   = null;
-        isMoonSurveyChecked = false;
-        isRingDataChecked   = false;
-        isImagesChecked     = false;
-    } 
-    
-    public DiscoveriesBean(ArrayList<String> selectedPlanetaryEntities, 
-                           Boolean isMoonSurveyChecked, 
-                           Boolean isRingDataChecked, 
-                           Boolean isImagesChecked){
-        this.selectedPlanetaryEntities   = selectedPlanetaryEntities;
-        this.isMoonSurveyChecked = isMoonSurveyChecked;
-        this.isRingDataChecked   = isRingDataChecked;
-        this.isImagesChecked     = isImagesChecked;
-    }
+    }    
     
     public ArrayList<PlanetaryEntity> getPlanetaryEntityData() {
         return planetaryEntityData;
@@ -144,7 +155,7 @@ public class DiscoveriesBean implements Serializable {
         
         // clear the states
         if (this.selectedPlanetaryEntitiesState != null) {
-            this.selectedPlanetaryEntitiesState.clear();
+            resetPlanetaryEntitiesStates();
         }
         else {
             this.selectedPlanetaryEntitiesState = new ArrayList<String>();
@@ -154,18 +165,12 @@ public class DiscoveriesBean implements Serializable {
         if (this.selectedPlanetaryEntities.isEmpty()) {
             LOGGER.log(Level.WARNING, "No planet entities where selected. Preempting...");                                              
             // reset states:
-            this.selectedPlanetaryEntitiesState.clear();            
+            resetPlanetaryEntitiesStates();            
             return;
         }
 
-        // Clear all the states first but leave elements intact:
-        int length = this.selectedPlanetaryEntitiesState.size();
-        LOGGER.log(Level.INFO, "Clearing {0} selected planetary entities from list.", length);
-        for (int i = 0; i < length; i++) {
-            // reset states:
-            this.selectedPlanetaryEntitiesState.set(i, "");
-        }
-        
+        resetPlanetaryEntitiesStates();
+                
         int i = 0;        
         int index = -1;
         for (String str : this.selectedPlanetaryEntities) {
@@ -175,6 +180,15 @@ public class DiscoveriesBean implements Serializable {
             }
             index = -1;
             i++;
+        }        
+    }
+    
+    public void resetPlanetaryEntitiesStates(){
+        int length = this.selectedPlanetaryEntitiesState.size();
+        LOGGER.log(Level.INFO, "Clearing {0} selected planetary entities from list.", length);
+        for (int i = 0; i < length; i++) {
+            // reset states:
+            this.selectedPlanetaryEntitiesState.set(i, "");
         }        
     }
 }

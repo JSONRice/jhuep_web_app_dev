@@ -48,13 +48,13 @@
                         <fieldset id="planetselections" >
                             <legend>Select Planet or Moon</legend>
                             <select name="planets" id="planets" multiple required>
-                                <option value="moon" id="moon">The Moon</option>
-                                <option value="mars" id="mars">Mars</option>
-                                <option value="jupiter" id="jupiter">Jupiter</option> 
-                                <option value="saturn" id="saturn">Saturn</option>
-                                <option value="uranus" id="uranus">Uranus</option>
-                                <option value="neptune" id="neptune">Neptune</option>                                
-                                <option value="pluto" id="pluto">Pluto</option>                            
+                                <option value="The Moon" id="moon">The Moon</option>
+                                <option value="Mars" id="mars">Mars</option>
+                                <option value="Jupiter" id="jupiter">Jupiter</option> 
+                                <option value="Saturn" id="saturn">Saturn</option>
+                                <option value="Uranus" id="uranus">Uranus</option>
+                                <option value="Neptune" id="neptune">Neptune</option>                                
+                                <option value="Pluto" id="pluto">Pluto</option>                            
                             </select>
                             <br/>
                             <span id="select_instructions">Hold down the Ctrl (Windows-Linux) / Command (Mac) button to select multiple entities.</span>

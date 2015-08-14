@@ -91,10 +91,6 @@ public class LoginController extends HttpServlet {
         return;
     }
 
-        //
-    //NEED TO HAVE NEW USER FUNCTIONALITY HANDLED FROM gift_shop.jsp
-    //
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

@@ -32,19 +32,19 @@
             </tr>                
             <tr>
                 <td>
-                    <h1 class="sub-title">Planetary Entity Report</h1>
+                    <h1 class="sub-title">NEWHORIZONS Planetary Data Discovery Report</h1>
                 </td>
-            </tr>                        
+            </tr>
+            <tr>
+                <td>
+                    <h4 class="sub-title"><i>Courtesy of NASA</i></h4>
+                </td>
+            </tr>
         </table>         
         <table class="grid">
             <%
                 ArrayList<PlanetaryEntity> planetaryEntities = discoveriesBean.getPlanetaryEntityData();
                 if (planetaryEntities != null) {
-            %>
-            <tr>
-                <th>Paramater Data</th>
-            </tr>            
-            <%
                     int length = planetaryEntities.size();
                     for (int i = 0; i < length; i++) {
             %>
@@ -52,8 +52,18 @@
                 <td class="grid-border">Name: <%= planetaryEntities.get(i).getName()%></td>
             </tr>
             <tr>
-                <td class="grid-border"><%= planetaryEntities.get(i).getParameterData()%></td>
+                <td class="grid-border">Parameter Data:</td>
+            </tr>            
+            <tr>
+                <td class="grid-border"><pre><%= planetaryEntities.get(i).getParameterData()%></pre></td>
             </tr>
+            <tr>
+                <td class="grid-border">Atmosphere Data:</td>
+            </tr>            
+            <tr>
+                <td class="grid-border"><pre><%= planetaryEntities.get(i).getAtmosphereData()%></pre></td>
+            </tr>
+            <tr class="empty-row"></tr>
             <%
                     }
                 }
