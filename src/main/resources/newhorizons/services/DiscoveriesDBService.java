@@ -1,6 +1,5 @@
 package resources.newhorizons.services;
 
-import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +15,7 @@ import resources.newhorizons.controllers.MainController;
  * Discoveries service and utilized within the Discoveries view. Transactions
  * should strictly be READ-ONLY.
  */
-public class DiscoveriesDBService implements Serializable {
+public class DiscoveriesDBService {
 
     private final static Logger LOGGER = Logger.getLogger(MainController.class.getName());
 

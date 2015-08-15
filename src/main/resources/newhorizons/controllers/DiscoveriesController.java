@@ -1,6 +1,7 @@
 package resources.newhorizons.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -42,14 +43,64 @@ public class DiscoveriesController extends HttpServlet {
             discoveriesBean = new DiscoveriesBean();
             LOGGER.log(Level.INFO, "Setting planetary entities from select[planets]");
             discoveriesBean.setPlanetaryEntities(request.getParameterValues("planets"));
+            
+            LOGGER.log(Level.INFO, "Checking for additional options selected:");
+            
+            // Available options:
+            final String moonsurvey = "moonsurvey";
+            final String ringdata = "ringdata";
+            final String images = "images";
+            
+            if (request.getParameter(moonsurvey) != null) {
+                discoveriesBean.setIsMoonSurveyChecked(true);
+            }
+            else {
+                discoveriesBean.setIsMoonSurveyChecked(false);                
+            }
+            
+            if (request.getParameter(ringdata) != null) {
+                discoveriesBean.setIsRingDataChecked(true);            
+            }
+            else {
+                discoveriesBean.setIsRingDataChecked(false);                
+            }
+            
+            if (request.getParameter(images) != null) {
+                discoveriesBean.setIsImagesChecked(true);            
+            }
+            else {
+                discoveriesBean.setIsImagesChecked(false);                            
+            }
+            
+            // Add the options to a list for later:
+            
+            ArrayList<String> options = new ArrayList();
+            if (discoveriesBean.getIsMoonSurveyChecked() != null
+                    && discoveriesBean.getIsMoonSurveyChecked()) {
+                LOGGER.log(Level.INFO, "Moon option selected.");
+                options.add("moons");
+            }
+            if (discoveriesBean.getIsRingDataChecked() != null
+                    && discoveriesBean.getIsRingDataChecked()) {
+                LOGGER.log(Level.INFO, "Ring option selected.");
+                options.add("rings");
+            }
+            if (discoveriesBean.getIsImagesChecked() != null
+                    && discoveriesBean.getIsImagesChecked()) {
+                LOGGER.log(Level.INFO, "Images option selected.");
+                options.add("images");
+            }
+
+            discoveriesBean.setOptions((String[]) options.toArray(new String[options.size()]));
+            LOGGER.log(Level.INFO, "All options accounted for.");
+
             // Now that we the planetary entities have been set run the db query and store data for;
             // PARAMETER_DATA, ATMOSPHERE_DATA, RINGDATA
             discoveriesBean.planetaryEntityQuery();
-        } 
-        else if (request.getParameter("remove") != null) {
-          // TODO: user wishes to remove a planetary entity item and rerun query report:
+        } else if (request.getParameter("remove") != null) {
+            // TODO: user wishes to remove a planetary entity item and rerun query report:
         }
-        
+
         if (!response.isCommitted()) {
             // Else if no errors store our updated bean and dispatch (route) to the results page:
             session.setAttribute("discoveriesBean", discoveriesBean);

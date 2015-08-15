@@ -604,3 +604,243 @@ Orbital values are barycentric
 ')
 
 
+----
+-- RING data updates
+----
+
+-- Jupiter rings:
+UPDATE PLANETARY_ENTITY SET RINGDATA='Ring Name: 1979 J1R ("Halo")
+Distance*: 100,000 - 122, 800 km
+Width: 22,800 km
+
+Ring Name: 1979 J2R ("Main")
+Distance*: 122,800 - 129,200 km
+Width: 6,400 km
+Mass: x 1013 kg
+
+Ring Name: 1979 J3R ("Gossamer")
+Distance*: 129,200 - 214,200 km
+Width: 85,000 km
+
+* The distance is measured from the planet center to the start of the ring.'
+WHERE NAME='Jupiter'
+
+-- Saturn rings:
+UPDATE PLANETARY_ENTITY SET RINGDATA='Ring Name: D
+Distance*: 66,970 - 74,490 km
+Width: 7,500 km
+
+Ring Name: C
+Distance*: 74,490 - 91,980 km
+Width: 17,500 km
+
+Ring Name: Columbo Gap
+Distance*: 77,800 km
+Width: 100 km
+
+Ring Name: Maxwell Gap
+Distance*: 87,500 km
+Width: 270 km
+
+Ring Name: Bond Gap
+Distance*: 88,690 - 88,720 km
+Width: 30 km
+
+Ring Name: Dawes Gap
+Distance*: 90,200 - 90,220 km
+Width: 20 km
+
+Ring Name: B
+Distance*: 91,980 - 117,580 km
+Width: 25,500 km
+
+Ring Name: Cassini Division
+Distance*: 117,500 - 122,050 km
+Width: 4,700 km
+
+Ring Name: Huygens gap
+Distance*: 117,680 km
+Width: 285 km - 440 km
+
+Ring Name: Herschel Gap
+Distance*: 118,183 - 118,285 km
+Width: 102 km
+
+Ring Name: Russell Gap
+Distance*: 118,597 - 118,630 km
+Width: 33 km
+
+Ring Name: Jeffreys Gap
+Distance*: 118,931 - 118,969 km
+Width: 38 km
+
+Ring Name: Kuiper Gap
+Distance*: 119,403 -119,406 km
+Width: 3 km
+
+Ring Name: Leplace Gap
+Distance*: 119,848 - 120,086 km
+Width: 238 km
+
+Ring Name: Bessel Gap
+Distance*: 120,305 - 120,318 km
+Width: 10 km
+
+Ring Name: Barnard Gap
+Distance*: 120,305 - 120,318 km
+Width: 13 km
+
+Ring Name: A
+Distance*: 122,050 - 136,770 km
+Width: 14,600 km
+
+Ring Name: Encke Gap
+Distance*: 133,570 km
+Width: 325 km
+
+Ring Name: Keeler Gap
+Distance*: 136,530 km
+Width: 35 km
+
+Ring Name: Roche Division
+Distance*: 136,770 - 139,380 km
+Width: 2600 km
+
+Ring Name: F
+Distance*: 140,224 km
+Width: 30 km - 500 km
+
+Ring Name: G
+Distance*: 166,000 - 174,000 km
+Width: 8,000 km
+
+Ring Name: E
+Distance*: 180,000 - 480,000 km
+Width: 300,000 km
+
+* The distance is measured from the planet center to the start of the ring.'
+WHERE NAME='Saturn'
+
+-- Uranus rings:
+UPDATE PLANETARY_ENTITY SET RINGDATA='Ring Name: Zeta (1986 U2R)
+Distance*: 39,600 km
+Width: 3,500 (plus 5,000 km extension inwards) km
+Thickness: 0.1 km
+Albedo: 0.03
+
+Ring Name: 6
+Distance*: 41,840 km
+Width: 1 km - 3 km
+Thickness: 0.1 km
+Albedo: 0.03
+
+Ring Name: 5
+Distance*: 42,230 km
+Width: 2 km - 3 km
+Thickness: 0.1 km
+Mass: 0.1 kg
+Albedo: 0.03
+
+Ring Name: 4
+Distance*: 42,580 km
+Width: 2 km - 3 km
+Thickness: .1 km
+Mass: .1 kg
+Albedo: 0.03
+
+Ring Name: Alpha
+Distance*: 44,720 km
+Width: 7 km - 12 km
+Thickness: 0.1 km
+Albedo: 0.03
+
+Ring Name: Beta
+Distance*: 45,670 km
+Width: 7 km - 12 km
+Thickness: 0.1 km
+Albedo: 0.03
+
+Ring Name: Eta
+Distance*: 47,190 km
+Width: 0 km - 2 km
+Thickness: 0.1 km
+Albedo: 0.03
+
+Ring Name: Gamma
+Distance*: 47,630 km
+Width: 1 km - 4 km
+Thickness: 0.1 km
+Albedo: 0.03
+
+Ring Name: Delta
+Distance*: 48,290 km
+Width: 3 km - 9 km
+Thickness: 0.1 km
+Albedo: 0.03
+
+Ring Name: Lambda (1986 U1R)
+Distance*: 50,024 km
+Width: 2 km - 3 km
+Thickness: 0.1 km
+Albedo: 0.03
+
+Ring Name: Epsilon
+Distance*: 51,140 km
+Width: 20 km - 100 km
+Thickness: < 15 km
+Albedo: 0.03
+
+Ring Name: Nu (R/2003 U 2)
+Distance*: 67,300 km
+Width: 3,800 km
+
+Ring Name: Mu (R/2003 U 1)
+Distance*: 97,700 km
+Width: 17,000 km
+
+* The distance is measured from the planet center to the start of the ring.'
+WHERE NAME='Uranus'
+
+-- Neptune rings
+UPDATE PLANETARY_ENTITY SET RINGDATA='Ring Name: 1989 N3R Galle
+Distance*: 41,900 km
+Width: 15 km
+Albedo: Low
+
+Ring Name: 1989 N2R Leverrier
+Distance*: 53,200 km
+Width: 15 km
+Albedo: Low
+
+Ring Name: Lassell
+Distance*: 55,400 km
+Width: - km
+Albedo: Low
+
+Ring Name: Arago
+Distance*: 57,600 km
+Width: - km
+Albedo: Low
+
+Ring Name: 1989 N1R Adams
+Distance*: 57,600 km
+Width: - km
+
+Ring Name: Liberte ("Leading" Adams arc)
+Distance*: 62,930 km
+Width: < 50 km
+Albedo: Low
+
+Ring Name: Egalite ("Equidistant" Adams arc)
+Distance*: 62,900 km
+Width: - km
+
+Ring Name: Fraternite ("Following" Adams arc)
+Distance*: 62,900 km
+
+Ring Name: Courage (arc)
+Distance*: 62,900 km
+Width: - km
+
+* The distance is measured from the planet center to the start of the ring.'
+WHERE NAME='Neptune'

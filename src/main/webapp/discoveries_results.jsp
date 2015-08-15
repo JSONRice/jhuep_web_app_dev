@@ -3,6 +3,8 @@
     Created on : Aug 11, 2015, 8:45:27 PM
     Author     : jsnrice
 --%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Arrays"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="resources.newhorizons.model.PlanetaryEntity"%>
 <%@page import="java.util.ArrayList"%>
@@ -43,6 +45,24 @@
         </table>         
         <table class="grid">
             <%
+                boolean moonSurvey = false;
+                boolean ringsData = false;
+                boolean imagesData = false;
+                String[] options = discoveriesBean.getOptions();
+
+                // Convert to list format to use the contains method:
+                List<String> optionsList = Arrays.asList(options);
+
+                if (optionsList.contains("moons")) {
+                    moonSurvey = true;
+                }
+                if (optionsList.contains("rings")) {
+                    ringsData = true;
+                }
+                if (optionsList.contains("images")) {
+                    imagesData = true;
+                }
+
                 ArrayList<PlanetaryEntity> planetaryEntities = discoveriesBean.getPlanetaryEntityData();
                 if (planetaryEntities != null) {
                     int length = planetaryEntities.size();
@@ -63,11 +83,32 @@
             <tr>
                 <td class="grid-border"><pre><%= planetaryEntities.get(i).getAtmosphereData()%></pre></td>
             </tr>
+            <%
+                if (ringsData) {
+            %>
+            <tr>
+                <td class="grid-border">Ring Data:</td>
+            </tr>            
+            <tr>
+                <td class="grid-border"><pre><%= planetaryEntities.get(i).getRingData()%></pre></td>
+            </tr>
+            <%
+                }
+                if (moonSurvey) {
+            %>
+            <tr>
+                <td class="grid-border">Moon Survey:</td>
+            </tr>            
+            <tr>
+                <td class="grid-border"><pre><%= planetaryEntities.get(i).getMoonSurvey()%></pre></td>
+            </tr>
+            <%
+                }
+            %>
             <tr class="empty-row"></tr>
             <%
-                    }
                 }
-                else {
+            } else {
             %>
             <tr>
                 <td class="grid-border"><i>Warning: no database records found. Please check parameters or reach out to web team.</i></td>
