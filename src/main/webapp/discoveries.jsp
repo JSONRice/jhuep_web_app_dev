@@ -16,31 +16,20 @@
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/newhorizons/ui/checkboxrequired.js" type="text/javascript"></script>        
         <script src="js/indexErrorHandler.js" type="text/javascript"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
-        <script type="text/javascript">
-            $(document).ready(function () {
- 
-                $('#button-upload').click(function () {
-                    $('#spinner').show();
-                });
-            });
-        </script>        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">            
     </head>
     <body>
         <jsp:include page="banner.jsp"/>
-        <div id="spinner" class="spinner" style="display:none;">
-            <img id="img-spinner" src="images/ajax-loader.gif" alt="Loading"/>
-        </div>
         <form name="discoveriesform" id="form" action="discoveries" method="post">
             <table>
                 <tr>
                     <td>
                         <h1 class="main-title">Discoveries</h1>            
                     </td>
-                </tr>                
+                </tr>          
                 <tr>                
                     <td>            
-                        <span class="title">Archived Discovery Report Form:</span>
+                        <span class="title" style="width:100%">NEWHORIZONS Discoveries Report Form:</span>
                     </td>
                 </tr>
                 <tr>
@@ -86,7 +75,7 @@
                 <tr class="empty-row"/>                
                 <tr>
                     <td>
-                        <input type="submit" name="queryDiscoveries" value="Submit"/>
+                        <input id="submit" type="submit" name="queryDiscoveries" value="Submit"/>
                     </td>
                 </tr>            
             </table>    

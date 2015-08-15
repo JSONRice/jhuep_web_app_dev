@@ -45,7 +45,7 @@
                             
                             <br/><br/>
                             <div id="submitbuttons">
-                                <input type="submit" name="submitnewuser" value="submit"/>      
+                                <input id="submit" type="submit" name="submitnewuser" value="submit"/>      
                             </div>
                         </fieldset>
                     </td>

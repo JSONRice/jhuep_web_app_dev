@@ -88,7 +88,7 @@ to setup items in the jsp
                             <% } %>
                             
                             <div id="submitbuttons">
-                                <input type="submit" name="checkout" value="Add to Cart"/> 
+                                <input id="submit" type="submit" name="checkout" value="Add to Cart"/> 
                             </div>                            
                         </fieldset>
                     </td>

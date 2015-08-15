@@ -13,6 +13,7 @@
 -->
 
 <script src="js/newhorizons/ui/navbar.js" type="text/javascript"></script>
+<script src="js/newhorizons/ui/loadinggif.js" type="text/javascript"></script>        
 <jsp:useBean id="user" scope="session" class="resources.newhorizons.domain.UserSessionBean"></jsp:useBean>
     <ul class="navbar">
         <li>
@@ -34,15 +35,18 @@
 
     <div align='center'>    
         <br/>
-    <%
-        if (user.getFirstName() == null) {
-    %>
-    <span style="font-size:12pt;font-style: italic;">Not Logged In</span>
-    <%
-    } else {
-
-    %>
-    <span style="font-size:12pt;font-style: italic;">Welcome, ${user.firstName}</span>
-    <%            }
-    %>
-</div>
+        <%
+            if (user.getFirstName() == null) {
+        %>
+        <span style="font-size:12pt;font-style: italic;">Not Logged In</span>
+        <%
+        } else {
+        %>
+        <span style="font-size:12pt;font-style: italic;">Welcome, ${user.firstName}</span>
+        <%            
+          }
+        %>
+    </div>
+    <br/>
+    <div id="loader"></div>
+    

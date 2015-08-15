@@ -137,7 +137,7 @@ particular user in the Array.
                     <td class="border">
                         <form action="CheckoutController" method="get">
                             <input type="hidden" name="item" value="<%= selectedItems.get(i)%>" />
-                            <center><input type="submit" style="margin: 1px;" value="remove" name="remove"></center>
+                            <center><input id="submit" type="submit" style="margin: 1px;" value="remove" name="remove"></center>
                         </form>
                     </td>
                 </tr>
@@ -153,7 +153,7 @@ particular user in the Array.
                     <td align="right">Proceed to Payment Options</td>
                     <td>
                         <form action="PaymentController" method="get">
-                            <input type="submit" value="Pay" name="pay">
+                            <input id="submit" type="submit" value="Pay" name="pay">
                         </form>
                     </td>
                 </tr>

@@ -41,7 +41,7 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
                             <input type="password" name="passwd" required/> 
                             <br/><br/>
                             <div id="submitbuttons">
-                                <input type="submit" name="submituserpassword" value="submit"/> 
+                                <input id="submit" type="submit" name="submituserpassword" value="submit"/> 
 
                             </div>
                         </fieldset>
