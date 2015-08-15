@@ -67,6 +67,7 @@ public class UserSessionBean implements Serializable {
             }
            this.errorMessage = "Password Failed";
         } 
+        this.errorMessage = "Username does not exist";
     }
     
     public UserSessionBean(String firstname, String lastname, String email,
