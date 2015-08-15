@@ -35,14 +35,16 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
                         <fieldset id="credentials">
                             <legend>Login Credentials</legend>
                             <label for="username">Username:</label>
-                            <input type="text" id="username" name="username"/>
+                            <input type="text" id="username" name="username" required/>
                             <br/> 
                             <label for="passwd">Password:</label> 
                             <input type="password" name="passwd" required/> 
                             <br/><br/>
                             <div id="submitbuttons">
                                 <input id="submit" type="submit" name="submituserpassword" value="submit"/> 
-
+                                <a href="new_user.jsp">
+                                    <button>New User</button>
+                                </a>
                             </div>
                         </fieldset>
                     </td>
@@ -50,10 +52,5 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
             </table>
             <div style="color:#FF0000"><div style align='center'>${user.errorMessage}</div></div>
         </form>
-        <div style align="center">
-            <a href="new_user.jsp">
-                <button>New User</button>
-            </a>
-        </div>
     </body>
 </html>

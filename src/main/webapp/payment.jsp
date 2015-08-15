@@ -1,16 +1,6 @@
-
-
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%@ page import="java.util.*" %>
-
+<%@page import="java.util.*" %>
 <jsp:useBean id="user" scope="session" class="resources.newhorizons.domain.UserSessionBean"></jsp:useBean>
-
-
-
-
     <!DOCTYPE html>
     <html>
         <head>
@@ -121,5 +111,5 @@
                 <tr><td><input id="submit" type="submit" value="Confirm Payment"></td></tr>
             </table>               
         </form>        
-    </body>
+</body>
 </html>

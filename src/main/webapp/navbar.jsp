@@ -20,7 +20,7 @@
             <a href="index.jsp" title="Main" id="main">Main</a>
         </li>
         <li>
-            <a href="data_feeds.jsp" title="About Us" id="data_feeds">Data Feeds</a>
+            <a href="information.jsp" title="About Us" id="information">Information</a>
         </li>
         <li>
             <a href="discoveries.jsp" title="Discoveries" id="discoveries">Discoveries</a>
