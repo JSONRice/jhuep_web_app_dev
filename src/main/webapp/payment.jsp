@@ -43,16 +43,16 @@
 
                 <%
                     }
-                %>   
+                %>
+                
+                <tr>
+                    <td align="left"><b>Total:</b></td>
+                    <td bgcolor="green"><b>$<%= user.getSelectedItemsTotalCost()%></b></td>
+                </tr>
+                
             </table>
 
             <br>
-            <table BORDER="1"  WIDTH="50%"   CELLPADDING="1" CELLSPACING="1">  
-                <tr>
-                    <td align="right">Total:</td>
-                    <td>$<%= user.getSelectedItemsTotalCost()%></td>
-                </tr>
-            </table>
         </form>
 
         <!--- This is where SSL functionality needs to be implemented -->
