@@ -110,7 +110,7 @@ public class DiscoveriesDBService {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         ResultSet result;
-        Blob image = null;
+        Blob image;
 
         if (name == null || name.isEmpty()) {
             LOGGER.log(Level.WARNING, "basicQuery(): param name null || isEmpty\n");
