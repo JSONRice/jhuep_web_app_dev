@@ -13,7 +13,6 @@
 -->
 
 <script src="js/newhorizons/ui/navbar.js" type="text/javascript"></script>
-<script src="js/newhorizons/ui/loadinggif.js" type="text/javascript"></script>        
 <jsp:useBean id="user" scope="session" class="resources.newhorizons.domain.UserSessionBean"></jsp:useBean>
     <ul class="navbar">
         <li>
@@ -48,5 +47,3 @@
         %>
     </div>
     <br/>
-    <div id="loader"></div>
-    

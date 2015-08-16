@@ -15,7 +15,6 @@
         <script src="js/jquery.js"                     type="text/javascript"></script>
         <script src="js/newhorizons/ui/tabs.js"        type="text/javascript"></script>        
         <script src="js/jquery-ui/jquery-ui.js"        type="text/javascript"></script>
-        <script src="js/indexErrorHandler.js"          type="text/javascript"></script>
         <script src="js/jquery-ui/jquery.countdown.js" type="text/javascript"></script>        
         <script src="js/newhorizons/ui/countdown.js"   type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

@@ -13,6 +13,7 @@ public class PlanetaryEntity {
     private String parameterData;
     private String atmosphereData;
     private String ringData;
+    private byte[] image;
     private String moonSurvey;
     private Integer moonCount;
     private Boolean isPlanet;
@@ -34,7 +35,8 @@ public class PlanetaryEntity {
             Integer moonCount, 
             Boolean isPlanet, 
             Boolean isMoon, 
-            Boolean hasMoons) {
+            Boolean hasMoons,
+            byte[] image) {
         this.name = name;
         this.parameterData = parameterData;
         this.atmosphereData = atmosphereData;
@@ -44,6 +46,7 @@ public class PlanetaryEntity {
         this.isPlanet = isPlanet;
         this.isMoon = isMoon;
         this.hasMoons = hasMoons;
+        this.image = image;
     }
 
     public String getName() {
@@ -117,4 +120,12 @@ public class PlanetaryEntity {
     public void setHasMoons(Boolean hasMoons) {
         this.hasMoons = hasMoons;
     }
+    
+    public byte[] getImage() {
+        return image;
+    }
+
+    public synchronized void setImage(byte[] image) {
+        this.image = image;
+    }    
 }

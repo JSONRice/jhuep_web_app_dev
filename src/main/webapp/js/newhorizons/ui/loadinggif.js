@@ -6,6 +6,9 @@
  *  You can also change the loader gif in here.
  **/
 $(function () {
+    console.log("loadinggif.js called. Storing loadergif.");
+    $("#loadergif").hide();
+    
     $("#loader").prepend("<center id='loadergifframe'><div id='loadergif' style='display: none;'><img src='images/ajax-loader2.gif'/></div><center>");
 
     $('#submission, #submit').click(function () {

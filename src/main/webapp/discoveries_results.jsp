@@ -21,7 +21,6 @@
         <link href="css/master.css" rel="stylesheet" type="text/css" />        
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/newhorizons/ui/checkboxrequired.js" type="text/javascript"></script>        
-        <script src="js/indexErrorHandler.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
     </head>
     <body>
@@ -61,7 +60,7 @@
                 }
                 if (optionsList.contains("images")) {
                     imagesData = true;
-                }
+                }              
 
                 ArrayList<PlanetaryEntity> planetaryEntities = discoveriesBean.getPlanetaryEntityData();
                 if (planetaryEntities != null) {
@@ -71,6 +70,15 @@
             <tr>
                 <td class="grid-border">Name: <%= planetaryEntities.get(i).getName()%></td>
             </tr>
+            <%
+                if (imagesData) {
+            %>
+            <tr>
+                <td class="grid-border"><img src="imagecontroller?name=<%= planetaryEntities.get(i).getName() %>"/></td>
+            </tr>            
+            <%
+                }
+            %>            
             <tr>
                 <td class="grid-border">Parameter Data:</td>
             </tr>            

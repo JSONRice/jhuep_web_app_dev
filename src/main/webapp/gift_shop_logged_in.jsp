@@ -40,7 +40,7 @@ to setup items in the jsp
         <link href="css/hw.css" rel="stylesheet" type="text/css" />
         <link href="css/master.css" rel="stylesheet" type="text/css" />        
         <script src="js/jquery.js" type="text/javascript"></script>
-        <script src="js/indexErrorHandler.js" type="text/javascript"></script>
+        <script src="js/newhorizons/ui/loadinggif.js" type="text/javascript"></script>                        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
     </head>
     <body>
@@ -89,7 +89,8 @@ to setup items in the jsp
                             
                             <div id="submitbuttons">
                                 <input id="submit" type="submit" name="checkout" value="Add to Cart"/> 
-                            </div>                            
+                            </div>   
+                            <div id="loader"></div>                                                        
                         </fieldset>
                     </td>
                 </tr>

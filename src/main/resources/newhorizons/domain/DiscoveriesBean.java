@@ -86,7 +86,7 @@ public class DiscoveriesBean {
      */
     public void planetaryEntityQuery() {
         if (selectedPlanetaryEntities == null) {
-            LOGGER.log(Level.WARNING, "Selecte planetary entities list is null. Preempting...");
+            LOGGER.log(Level.WARNING, "Selected planetary entities list is null. Preempting...");
             return;
         } else if (selectedPlanetaryEntities.size() <= 0) {
             LOGGER.log(Level.WARNING,
@@ -98,13 +98,14 @@ public class DiscoveriesBean {
             planetaryEntityData.clear();
         }
 
-        for (String selected : selectedPlanetaryEntities) {
+        for (String name : selectedPlanetaryEntities) {
             PlanetaryEntity entity = new PlanetaryEntity();
-            entity.setName(selected);
-            entity.setParameterData(DiscoveriesDBService.getParameterData(selected));
-            entity.setAtmosphereData(DiscoveriesDBService.getAtmosphereData(selected));
-            entity.setRingData(DiscoveriesDBService.getRingData(selected));
-            entity.setMoonSurvey(DiscoveriesDBService.getMoonSurvey(selected));
+            entity.setName(name);
+            entity.setParameterData(DiscoveriesDBService.getParameterData(name));
+            entity.setAtmosphereData(DiscoveriesDBService.getAtmosphereData(name));
+            entity.setRingData(DiscoveriesDBService.getRingData(name));
+            entity.setMoonSurvey(DiscoveriesDBService.getMoonSurvey(name));
+            entity.setImage(DiscoveriesDBService.getImage(name));
             // Add to list:
             planetaryEntityData.add(entity);
         }

@@ -13,7 +13,6 @@
         <link href="css/master.css" rel="stylesheet" type="text/css" />  
         <link href="css/ratings.css" rel="stylesheet" type="text/css" />
         <script src="js/jquery.js" type="text/javascript"></script>
-        <script src="js/indexErrorHandler.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <%-- <script>
             // Remove this after testing rate widget:

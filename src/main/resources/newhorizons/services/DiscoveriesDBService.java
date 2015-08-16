@@ -1,5 +1,6 @@
 package resources.newhorizons.services;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -53,29 +54,7 @@ public class DiscoveriesDBService {
         }
         return csvTuple;
     }
-    
-    /**
-     * @param name
-     * @description Given a unique planetary entity name (NAME) return the IMAGE associated with that name.
-     * @return 
-     */
-    public static String getImage(final String name) {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        Connection connection = pool.getConnection();
-        PreparedStatement ps = null;
-        ResultSet result;
-        String csvTuple = "";
-
-        if (name == null || name.isEmpty()) {
-            LOGGER.log(Level.WARNING, "getImage(): param name null || isEmpty\n");
-            return null;
-        }
         
-        final String query = "SELECT IMAGE FROM " + tableName + " WHERE NAME ='" + name + "'";
-        // TODO: complete. May need to return a byte array or other image type. Look at additional API's
-        return null;
-    }
-    
     /**
      * @description Get parameter data.
      * @param name Planet or moon name.
@@ -113,6 +92,54 @@ public class DiscoveriesDBService {
     }
     
     /**
+     * @description Get the image.
+     * @param name Planet or moon name.
+     * @return
+     */
+    public static byte[] getImage(final String name) {
+        return blobQuery("IMAGE", name);
+    }
+    
+    /**
+     * @description Perform a BLOB based query for an item such as an image.
+     * @param col column to query against (e.g. "IMAGE")
+     * @param name name of planet or moon to query on.
+     */
+    public static byte[] blobQuery(final String col, final String name) {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet result;
+        Blob image = null;
+
+        if (name == null || name.isEmpty()) {
+            LOGGER.log(Level.WARNING, "basicQuery(): param name null || isEmpty\n");
+            return null;
+        }
+        
+        final String query = "SELECT " + col + " FROM " + tableName + " WHERE NAME ='" + name +"'";
+        
+        try {
+            ps = connection.prepareStatement(query);
+            result = ps.executeQuery(query);
+            // There will only be one item to return
+            if (result.next()){
+                image = result.getBlob(1);
+                byte[] resultBlob = image.getBytes(1, (int) image.length());
+                return resultBlob;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+            return null;
+        } finally {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+        // This should never get called if the query runs successfully.
+        return null;
+    }
+    
+    /**
      * @description Perform a basic query returning data associated with just one parameter string.
      * 
      * Example: 
@@ -120,11 +147,11 @@ public class DiscoveriesDBService {
      *  SELECT PARAMETER_DATA FROM PLANETARY_ENTITY WHERE NAME = 'Jupiter'
      * The table would be "PARAMETER_DATA" and the name would be "Jupiter"
      * 
-     * @param table - table to query against
-     * @param name - name of planet or moone to query on
+     * @param col - column to query against
+     * @param name - name of planet or moon to query on
      * @return Query string
      */
-    public static String basicQuery(final String table, final String name) {
+    public static String basicQuery(final String col, final String name) {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
@@ -136,7 +163,7 @@ public class DiscoveriesDBService {
             return "";
         }
         
-        final String query = "SELECT " + table + " FROM " + tableName + " WHERE NAME ='" + name +"'";
+        final String query = "SELECT " + col + " FROM " + tableName + " WHERE NAME ='" + name +"'";
         
         try {
             ps = connection.prepareStatement(query);

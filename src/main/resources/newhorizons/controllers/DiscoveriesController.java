@@ -94,11 +94,9 @@ public class DiscoveriesController extends HttpServlet {
             discoveriesBean.setOptions((String[]) options.toArray(new String[options.size()]));
             LOGGER.log(Level.INFO, "All options accounted for.");
 
-            // Now that we the planetary entities have been set run the db query and store data for;
-            // PARAMETER_DATA, ATMOSPHERE_DATA, RINGDATA
+            // Now that the planetary entities have been set run the db query and store data for;
+            // PARAMETER_DATA, ATMOSPHERE_DATA, RINGDATA, IMAGE
             discoveriesBean.planetaryEntityQuery();
-        } else if (request.getParameter("remove") != null) {
-            // TODO: user wishes to remove a planetary entity item and rerun query report:
         }
 
         if (!response.isCommitted()) {
