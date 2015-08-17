@@ -42,9 +42,7 @@ jsp:setProperty name="user"  property="name" value="NewHorizonUser"/
                             <br/><br/>
                             <div id="submitbuttons">
                                 <input id="submit" type="submit" name="submituserpassword" value="submit"/> 
-                                <a href="new_user.jsp">
-                                    <button>New User</button>
-                                </a>
+                                <input type="button" onclick="window.location.href='new_user.jsp'" value = "new user"/>
                             </div>
                             <div id="loader"></div>                            
                         </fieldset>
