@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<some-root-element 
+    xmlns:jsp="http://java.sun.com/JSP/Page">
+  <some-element-1>Text</some-element-1>
+  <some-element-2>
+    Number:
+    <jsp:expression>Math.random()*10</jsp:expression>
+  </some-element-2>
+</some-root-element>

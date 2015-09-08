@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:output 
+     omit-xml-declaration="true"
+     doctype-root-element="html"
+     doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+     doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+<jsp:directive.page contentType="text/html"/>
+<head><title>Sample (XML Syntax)</title></head>
+<body bgcolor="#fdf5e6">
+<div align="center">
+<h1>Sample (XML Syntax)</h1>
+
+<h2>Num1: <jsp:expression>Math.random()*10</jsp:expression></h2>
+<jsp:scriptlet>
+double num2 = Math.random()*100;
+</jsp:scriptlet>
+<h2>Num2: <jsp:expression>num2</jsp:expression></h2>
+<jsp:declaration>
+private double num3 = Math.random()*1000;
+</jsp:declaration>
+<h2>Num3: <jsp:expression>num3</jsp:expression></h2>
+
+</div>
+</body></html>

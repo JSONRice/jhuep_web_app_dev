@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>Sample HTML Page</title></head>
+<body>
+<h1>Sample HTML Page</h1>
+<p>
+This is a simple HTML page. When first learning, make a new Dynamic Web app in Eclipse,
+copy this file to the WebContent folder, deploy the app, start the server, and access 
+the page with http://localhost/<i>appName</i>/hello.html.
+</p>
+</body></html>
