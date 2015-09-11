@@ -1,7 +1,8 @@
 <%-- 
-    Document   : index
-    Created on : Sep 10, 2015, 6:35:00 PM EST
-    Author     : jsnrice
+    Document    : index
+    Description : main page that user is first routed.
+    Created on  : Sep 10, 2015, 6:35:00 PM EST
+    Author      : jsnrice
 --%>
 <%@page import="java.util.Arrays"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

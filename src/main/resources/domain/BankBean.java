@@ -3,7 +3,7 @@ package resources.domain;
 import java.util.ArrayList;
 
 /**
- *
+ * @description Bank entity (model)
  * @author jsnrice
  */
 public class BankBean {

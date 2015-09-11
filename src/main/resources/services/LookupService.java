@@ -1,14 +1,13 @@
 package resources.services;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import resources.domain.BankBean;
 import resources.domain.Customer;
 
 /**
- *
+ * @description Lookup service is utilized by controller to retrieve (look up) a customer
+ * associated with the bank (bean).
  * @author jsnrice
  */
 public class LookupService {

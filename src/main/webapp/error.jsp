@@ -1,7 +1,8 @@
 <%-- 
-    Document   : error
-    Created on : Sep 10, 2015, 9:51:09 PM
-    Author     : jsnrice
+    Document    : error
+    Description : generic error page for invalid id's
+    Created on  : Sep 10, 2015, 9:51:09 PM
+    Author      : jsnrice
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

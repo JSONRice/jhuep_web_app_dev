@@ -1,7 +1,7 @@
 package resources.domain;
 
 /**
- *
+ * @description Customer entity (model).
  * @author jsnrice
  */
 public class Customer {
