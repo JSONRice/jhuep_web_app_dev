@@ -1,0 +1,101 @@
+/*
+   Homework Default Style Sheet
+   
+   Description: Labels and other elements are stacked with float to the left and aligned left.
+   Everything should align in an equal fashion to the left side. This allows elements to be 'stacked'
+   on top of each other.
+
+   Filename:         hw.css
+*/
+
+body {
+    margin: 0px; 
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#pageContent {
+    position: absolute; 
+    top: 170px; 
+    left: 20px; 
+    width: 900px;
+}
+
+#pageContent h1 {
+    margin: 0px; 
+    font-size: 20px; 
+    letter-spacing: 3px
+}
+
+
+h1, h2, h3, h4, h5 {
+    margin-left: 20px; 
+    letter-spacing: 2px;
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+label {
+    float: left;
+    width: 8em;
+}
+
+input {
+    width: 6em;
+    margin-left: 1em;
+    margin-bottom: .5em;
+}
+
+hr {
+    color: blue;
+    width: 100%;
+}
+
+textarea {
+    height: 5em;
+    width: 25em;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+ul {
+    margin: 0 10px 10px 0;
+    padding: 1px;
+}
+
+/* Decreased spacing */
+input[type="radio"], input[type="checkbox"] {
+    width: 1em;
+}
+
+input[type="text"] {
+    width: 2em;
+}
+
+form {
+    margin: 0px
+}
+
+fieldset {
+    margin: 0 10px 10px 0;
+    padding: 5px;
+    width: 400px;
+}
+
+legend {
+    color: skyblue;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+}
+
+.warning {
+    color: burlywood;
+}
+
+.balance:before {
+    content: "$"
+}

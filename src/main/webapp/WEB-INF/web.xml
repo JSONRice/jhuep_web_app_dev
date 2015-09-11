@@ -1,29 +1,15 @@
-<web-app version="3.0"
-         xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"> 
-  <!-- In Tomcat 7 and other servlet 3.0 containers, you can use @WebServlet("/urlPattern") in
-       the Java source code instead of using the servlet and servlet-mapping tags here.
-       In fact, the ENTIRE web.xml file can be totally omitted with servlets 3.0. But, I put
-       a small one here for two reasons. First, to show that you can still define URL patterns
-       the old way. Second, because when you make a new Dynamic Web Project in Eclipse 
-       using the Tomcat 7 configuration, Eclipse totally omits the web.xml file, and has no option
-       to insert it for you. So, already having a small web.xml with the legal syntax is helpful 
-       in case you want to use some of the standard web.xml entries instead of annotations.
-       
-       More details: 
-         - Tomcat 7 and Eclipse tutorial: http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html
-         - Servlet and JSP programming tutorials: http://courses.coreservlets.com/Course-Materials/csajsp2.html
-  -->
-  
-  <!-- Use the URL http://hostName/appName/test2 for
-       coreservlets.TestServlet -->
-  <servlet>
-    <servlet-name>Test</servlet-name>
-    <servlet-class>coreservlets.TestServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Test</servlet-name>
-    <url-pattern>/test2</url-pattern>
-  </servlet-mapping>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>jhuep_ria_ajax</display-name>
+    <servlet>
+        <servlet-name>BankController</servlet-name>
+        <servlet-class>resources.controllers.BankController</servlet-class>                
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BankController</servlet-name>
+        <url-pattern>/bank</url-pattern>
+    </servlet-mapping>    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
