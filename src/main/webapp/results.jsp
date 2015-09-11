@@ -1,11 +1,10 @@
 <%-- 
-    Document    : index
+    Document    : results
     Description : computed results page routed from servlet.
     Created on  : Sep 10, 2015, 6:35:00 PM EST
     Author      : jsnrice
 --%>
 <%@page import="resources.domain.Customer"%>
-<%@page import="java.util.Arrays"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
