@@ -5,10 +5,18 @@
         <servlet-name>BankController</servlet-name>
         <servlet-class>resources.controllers.BankController</servlet-class>                
     </servlet>
+    <servlet>
+        <servlet-name>HBCController</servlet-name>
+        <servlet-class>resources.controllers.HBCController</servlet-class>                
+    </servlet>
     <servlet-mapping>
         <servlet-name>BankController</servlet-name>
         <url-pattern>/bank</url-pattern>
     </servlet-mapping>    
+    <servlet-mapping>
+        <servlet-name>HBCController</servlet-name>
+        <url-pattern>/hbc</url-pattern>
+    </servlet-mapping>        
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

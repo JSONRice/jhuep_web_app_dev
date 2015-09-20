@@ -7,12 +7,15 @@ import java.util.ArrayList;
  * @author jsnrice
  */
 public class BankBean {
-    private static ArrayList<Customer> customers;
+    private ArrayList<Customer> customers;
     
     public BankBean() {
         customers = new ArrayList<Customer>();
-        customers.add(new Customer("James", "", "Gosling", 64320.90, 1));
-        customers.add(new Customer("Jesse", "James", "Garrett", 14030.24, 2));
+        // The Gang of Four (GOF)
+        customers.add(new Customer("Erich", "", "Gamma", 4030.24, 1));
+        customers.add(new Customer("Richard", "McGarrah", "Helm", 14030.24, 1));
+        customers.add(new Customer("Ralph", "E.", "Johnson", 64320.90, 1));
+        customers.add(new Customer("John", "Matthew", "Vlissides", 30.24, 1));
     }
     
     public final Customer getCustomer(int id) {
@@ -22,5 +25,9 @@ public class BankBean {
             }
         }
         return null;
+    }
+    
+    public final ArrayList<Customer> getCustomers() {
+        return customers;
     }
 }

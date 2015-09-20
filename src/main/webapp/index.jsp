@@ -10,7 +10,7 @@
     <head>
         <title>JHUEP RIA AJAX Online Banking Customer Lookup</title>
         <link href="css/hw.css" rel="stylesheet" type="text/css" />
-        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/ajax-utils.js" type="text/javascript"></script>        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
     </head>
     <body>
@@ -18,11 +18,10 @@
         <div id="pageContent" class="content">
             <form name="order" id="signup" action="bank" method="post">
                 <fieldset id="bankingfields">
-                    <legend>Enter User Id For Quick Lookup</legend>
-                    <input type="text" name="id" 
-                           value="" autofocus required/>
+                    <legend>Click to Acquire Highest Balance Customer (HBC)</legend>
+                    <input type="button" value="Query for HBC" onclick='hbcReport("hbc", "hbc-results")'>
                 </fieldset>
-                <input type="submit" id="submission" name="computeUser" value="Submit">
+                <div id="hbc-results" class="results"></div>                
             </form>
         </div>
     </body>

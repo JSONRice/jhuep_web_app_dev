@@ -1,5 +1,6 @@
 package resources.services;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import resources.domain.BankBean;
@@ -23,6 +24,15 @@ public class LookupService {
             LOGGER.log(Level.WARNING, "findCustomer param id must be greater than zero");                                
         }
         return bankBean.getCustomer(id);
+    }
+    
+    /**
+     * @description Return the customer with the highest balance. HBC stands for Highest Balance Customer.
+     * @return 
+     */
+    public Customer getHBC() {
+        final ArrayList<Customer> customers = bankBean.getCustomers();
+        return null;
     }
     
     public BankBean getBankBean() {
